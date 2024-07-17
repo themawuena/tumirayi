@@ -1,0 +1,379 @@
+.frameChild {
+  align-self: stretch;
+  height: 1024px;
+  position: relative;
+  background-color: var(--fa-white);
+  display: none;
+}
+.allProducts,
+.homeAll {
+  position: relative;
+  font-weight: 600;
+}
+.allProducts {
+  text-decoration: none;
+  color: inherit;
+}
+.homeAll {
+  font-size: var(--open-sans-semibold-16-size);
+  font-family: var(--open-sans-semibold-14);
+  color: var(--color-gray-700);
+}
+.allProductsParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+}
+.addCircleIcon {
+  height: 16px;
+  width: 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.button1 {
+  position: relative;
+  font-size: var(--copy-button-size);
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--rubik-14);
+  color: var(--pure-white);
+  text-align: left;
+}
+.button,
+.styleLayer {
+  cursor: pointer;
+  border: 0;
+  display: flex;
+}
+.styleLayer {
+  padding: var(--padding-base-5) var(--padding-7xl);
+  background-color: var(--dark-gray);
+  border-radius: var(--br-5xs);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-5xs);
+  white-space: nowrap;
+}
+.styleLayer:hover {
+  background-color: #575754;
+}
+.button {
+  padding: 0;
+  background-color: transparent;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameGroup,
+.productGrid {
+  align-self: stretch;
+  flex-direction: row;
+  z-index: 1;
+}
+.frameGroup {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--padding-base) 0 0;
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+}
+.productGrid {
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+}
+.frameParent,
+.productGrid,
+.productGridTwo,
+.productRowTwo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.frameParent {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-base);
+  text-align: left;
+  font-size: var(--rubik-24-size);
+  color: var(--dark-gray);
+  font-family: var(--rubik-14);
+}
+.productGridTwo,
+.productRowTwo {
+  flex-direction: row;
+}
+.productRowTwo {
+  flex: 1;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  z-index: 1;
+}
+.productGridTwo {
+  align-self: stretch;
+  padding: 0 0 var(--padding-31xl);
+  box-sizing: border-box;
+}
+.button3 {
+  position: relative;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 7px;
+}
+.buttonWrapper {
+  border-radius: var(--br-5xs);
+  background-color: var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs-5) var(--padding-base);
+}
+.button2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl);
+  color: var(--pure-white);
+}
+.button5 {
+  position: relative;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 9px;
+}
+.buttonContainer {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-mini);
+}
+.button4 {
+  width: 81px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.button7 {
+  position: relative;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 10px;
+}
+.buttonFrame {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-mini);
+}
+.button6 {
+  width: 82px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.button9 {
+  position: relative;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 10px;
+}
+.frameDiv {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-mini);
+}
+.button8 {
+  width: 82px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.button10,
+.button12 {
+  position: relative;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+}
+.button10 {
+  min-width: 13px;
+  flex-shrink: 0;
+}
+.button12 {
+  min-width: 17px;
+}
+.buttonWrapper1 {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-sm);
+}
+.button11 {
+  width: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-xl);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.button14 {
+  position: relative;
+  font-size: var(--copy-button-size);
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--copy-button);
+  color: var(--dark-gray);
+  text-align: left;
+  display: inline-block;
+  min-width: 39px;
+}
+.chevronForwardIcon {
+  height: 16px;
+  width: 16px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.nextButtonContainer {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-mini);
+  gap: var(--gap-9xs);
+}
+.button13 {
+  cursor: pointer;
+  border: 0;
+  padding: 0 var(--padding-xl);
+  background-color: transparent;
+  width: 131px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.buttonParent {
+  width: 412px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-base);
+  max-width: 100%;
+  z-index: 1;
+}
+.products,
+.rectangleParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangleParent {
+  flex: 1;
+  background-color: var(--fa-white);
+  flex-direction: column;
+  padding: var(--padding-60xl) var(--padding-7xs) 187px;
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+  flex-shrink: 0;
+  text-align: left;
+  font-size: var(--copy-button-size);
+  color: var(--dark-gray);
+  font-family: var(--copy-button);
+}
+.products {
+  width: 100%;
+  position: relative;
+  background-color: var(--pure-white);
+  overflow: hidden;
+  flex-direction: row;
+  gap: 52px;
+  line-height: normal;
+  letter-spacing: normal;
+}
+@media screen and (max-width: 925px) {
+  .allProducts {
+    font-size: var(--font-size-lgi);
+  }
+  .rectangleParent {
+    padding-top: 33px;
+    padding-bottom: var(--padding-60xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 700px) {
+  .rectangleParent {
+    padding-top: 51px;
+    padding-bottom: 122px;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .products {
+    gap: 26px;
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .buttonParent {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,146 @@
+/* styles/order_management.module.css */
+
+.container {
+  width: 100%;
+  position: relative;
+  background-color: var(--pure-white);
+  overflow: hidden;
+  flex-direction: row;
+  gap: var(--gap-4xs);
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.tabs {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.tabs div {
+  padding: 10px 20px;
+  border: none;
+  color: rgba(139, 144, 154, 1);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+.tabs div.active {
+  color: #0070f3;
+  border-bottom: 2px solid #0070f3;
+}
+
+.searchFilter {
+  margin-bottom: 20px;
+}
+
+.searchFilter input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.searchFilter select {
+  padding: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background: #f0f0f0;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #0070f3;
+  color: #fff;
+}
+@media screen and (max-width: 925px) {
+  .rectangleParent {
+    padding-bottom: 157px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 700px) {
+  .dashboard1 {
+    font-size: var(--font-size-lgi);
+  }
+  .breadcrumb {
+    flex-wrap: wrap;
+  }
+  .bestSellers {
+    font-size: var(--open-sans-semibold-16-size);
+  }
+  .bestSellersContainerParent {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+    min-width: 100%;
+  }
+  .rectangleParent {
+    height: auto;
+  }
+}
+
+.container,
+.rectangleParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangleParent {
+  height: 1024px;
+  flex: 1;
+  background-color: white;
+  flex-direction: column;
+  padding: var(--padding-lgi) var(--padding-4xl) 371px;
+  box-sizing: border-box;
+  gap: var(--gap-5xl);
+  text-align: left;
+  font-size: var(--rubik-24-size);
+  color: var(--color-black);
+  font-family: var(--rubik-14);
+}
+@media screen and (max-width: 450px) {
+  .bestSellersContainerParent {
+    flex: 1;
+  }
+  .graphContainerParent {
+    flex-wrap: wrap;
+  }
+  .rectangleParent {
+    max-width: 100%;
+  }
+  .dashboard {
+    padding-left: var(--padding-4xs);
+    padding-right: var(--padding-4xs);
+    box-sizing: border-box;
+  }
+}

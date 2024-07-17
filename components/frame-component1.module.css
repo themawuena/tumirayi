@@ -1,0 +1,205 @@
+.imagePlaceholder {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-gray-500);
+  max-width: 100%;
+}
+.imagePlaceholderWrapper {
+  align-self: stretch;
+  height: 444px;
+  border-radius: var(--br-base);
+  background-color: var(--fa-white);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-5xs);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.productGallery {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.phimageLightIcon {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.dropYourImager,
+.jpegPngAre {
+  position: relative;
+  font-weight: 600;
+}
+.jpegPngAre {
+  align-self: stretch;
+}
+.uploadInstructions {
+  width: 262px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.label {
+  cursor: pointer;
+}
+.input {
+  display: none;
+}
+.parent {
+  border-radius: var(--br-5xs);
+  border: 1px dashed var(--dark-gray);
+  padding: var(--padding-sm) var(--padding-xl);
+  text-align: center;
+  font-size: var(--open-sans-semibold-16-size);
+  color: var(--gray-main);
+  font-family: var(--open-sans-semibold-14);
+}
+.parent,
+.productGalleryParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.button1 {
+  position: relative;
+  font-size: var(--copy-button-size);
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--rubik-14);
+  color: var(--pure-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 57px;
+}
+.styleLayer {
+  border-radius: var(--br-5xs);
+  background-color: var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-base-5) var(--padding-11xl);
+}
+.button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button3 {
+  position: relative;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 55px;
+}
+.styleLayer1 {
+  border-radius: var(--br-5xs);
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-base-5) var(--padding-12xl);
+}
+.button2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button5 {
+  position: relative;
+  font-size: var(--copy-button-size);
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--rubik-14);
+  color: var(--dark-gray);
+  text-align: left;
+  display: inline-block;
+  min-width: 57px;
+}
+.styleLayer2 {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-sm) var(--padding-10xl);
+}
+.button4,
+.buttonParent {
+  display: flex;
+  align-items: flex-start;
+  padding: 0;
+}
+.button4 {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.buttonParent {
+  width: 386px;
+  height: 32px;
+  flex-direction: row;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  gap: var(--gap-base);
+  max-width: 100%;
+  font-size: var(--copy-button-size);
+  color: var(--pure-white);
+}
+.frameParent {
+  width: 457px;
+  border-radius: var(--br-base);
+  background-color: var(--pure-white);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-5xl);
+  min-width: 457px;
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--rubik-20-size);
+  color: var(--dark-gray);
+  font-family: var(--rubik-14);
+}
+@media screen and (max-width: 925px) {
+  .frameParent {
+    flex: 1;
+  }
+}
+@media screen and (max-width: 700px) {
+  .frameParent {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .productGallery {
+    font-size: var(--open-sans-semibold-16-size);
+  }
+}

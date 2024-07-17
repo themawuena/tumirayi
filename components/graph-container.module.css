@@ -1,0 +1,430 @@
+.button1,
+.saleGraph {
+  position: relative;
+  display: inline-block;
+}
+.saleGraph {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 600;
+  font-family: inherit;
+  min-width: 106px;
+}
+.button1 {
+  text-decoration: none;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: inherit;
+  min-width: 59px;
+}
+.graphButtonColumn {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-sm);
+}
+.button {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button3 {
+  position: relative;
+  font-size: var(--copy-button-size);
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--copy-button);
+  color: var(--pure-white);
+  text-align: left;
+  display: inline-block;
+  min-width: 72px;
+}
+.buttonWrapper {
+  border-radius: var(--br-5xs);
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-5xs-5) var(--padding-base);
+}
+.button2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.button5 {
+  position: relative;
+  font-size: var(--copy-button-size);
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--copy-button);
+  color: var(--dark-gray);
+  text-align: left;
+  display: inline-block;
+  min-width: 56px;
+}
+.buttonContainer {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-7xs) var(--padding-sm);
+}
+.button4 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: 87px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.graphButton,
+.graphTitle {
+  display: flex;
+  flex-direction: row;
+}
+.graphButton {
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-mini);
+  font-size: var(--copy-button-size);
+  color: var(--dark-gray);
+  font-family: var(--copy-button);
+}
+.graphTitle {
+  align-self: stretch;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.graphSeparator {
+  align-self: stretch;
+  height: 0.5px;
+  position: relative;
+  border-top: 0.5px solid var(--dark-gray);
+  box-sizing: border-box;
+}
+.graphTitleContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.graphContainerChild {
+  width: 0;
+  height: 217.9px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: 63.3px;
+  left: 109.6px;
+  z-index: 1;
+}
+.roxieWard,
+.roxieWard1,
+.roxieWard2 {
+  align-self: stretch;
+  position: relative;
+  line-height: 21px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.roxieWard3,
+.roxieWard4 {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+}
+.roxieWard3 {
+  width: 44.3px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+.roxieWard4 {
+  flex: 1;
+  line-height: 23.2px;
+  min-width: 12.2px;
+  flex-shrink: 0;
+}
+.roxieWardParent,
+.userNameTitleContainer {
+  width: 16.2px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-11xs);
+  box-sizing: border-box;
+}
+.roxieWardParent {
+  width: 47.6px;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 0 var(--padding-12xs-1);
+  gap: var(--gap-12xl-7);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+.frameChild {
+  align-self: stretch;
+  height: 0.6px;
+  position: relative;
+  border-top: 0.6px solid var(--dividers);
+  box-sizing: border-box;
+}
+.activityDataSeparator {
+  height: 3.8px;
+  width: 606.7px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: 29.6px;
+  left: -55px;
+  border-top: 3.8px solid var(--dividers);
+  box-sizing: border-box;
+}
+.activityDataList,
+.activityDataList1,
+.activityDataList2 {
+  height: 0.6px;
+  width: 603.5px;
+  position: absolute;
+  margin: 0 !important;
+  left: -55px;
+  border-top: 0.6px solid var(--dividers);
+  box-sizing: border-box;
+}
+.activityDataList {
+  bottom: 88.4px;
+}
+.activityDataList1,
+.activityDataList2 {
+  top: 82.8px;
+}
+.activityDataList2 {
+  top: 28.7px;
+}
+.roxieWard5,
+.roxieWard6 {
+  bottom: 0;
+  line-height: 23.2px;
+}
+.roxieWard5 {
+  width: 34.3px;
+  position: absolute;
+  margin: 0 !important;
+  left: -12.4px;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 34.3px;
+}
+.roxieWard6 {
+  width: 39.9px;
+  left: 86.1px;
+  min-width: 39.9px;
+}
+.roxieWard6,
+.roxieWard7,
+.roxieWard8 {
+  position: absolute;
+  margin: 0 !important;
+  font-weight: 600;
+  display: inline-block;
+}
+.roxieWard7 {
+  width: 39.9px;
+  right: 91.1px;
+  bottom: 0;
+  line-height: 23.2px;
+  min-width: 39.9px;
+}
+.roxieWard8 {
+  width: 38.3px;
+  right: -11.3px;
+  bottom: 7.8px;
+  line-height: 15.4px;
+}
+.lineIcon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: 232.33px;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.roxieWard10,
+.roxieWard9 {
+  position: relative;
+  line-height: 23.2px;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.roxieWard9 {
+  min-width: 34.3px;
+}
+.roxieWard10 {
+  width: 39.9px;
+}
+.activityItemUserNameContai {
+  width: 138.4px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: var(--gap-xl);
+}
+.activityItemDetails,
+.activityItemIconContainer {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+}
+.activityItemDetails {
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-3xl) 0 var(--padding-xl);
+}
+.activityItemIconContainer {
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--gap-7xl-1);
+  max-width: 100%;
+}
+.activityItemContainer,
+.activityItems {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.activityItemContainer {
+  align-self: stretch;
+  justify-content: flex-start;
+  position: relative;
+}
+.activityItems {
+  width: 572.9px;
+  justify-content: flex-end;
+  padding: 0 var(--padding-6xl);
+  box-sizing: border-box;
+}
+.lineParent {
+  align-self: stretch;
+  height: 251.4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-5xl-9);
+  flex-shrink: 0;
+  max-width: 100%;
+}
+.activityHeaderInner {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-10xs-8) 0 0;
+  box-sizing: border-box;
+  min-width: 392px;
+  text-align: center;
+}
+.activityHeader,
+.activityHeaderInner,
+.graphContainer,
+.recentActivity {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.activityHeader {
+  flex: 1;
+  flex-direction: row;
+  gap: var(--gap-17xl-3);
+}
+.graphContainer,
+.recentActivity {
+  box-sizing: border-box;
+}
+.recentActivity {
+  align-self: stretch;
+  flex-direction: row;
+  padding: 0 var(--padding-8xs) 0 var(--padding-9xs);
+  text-align: right;
+  font-size: var(--font-size-base-1);
+  color: var(--base-shade-100);
+  font-family: var(--copy-button);
+}
+.graphContainer {
+  flex: 1;
+  border-radius: var(--br-base);
+  background-color: var(--fa-white);
+  flex-direction: column;
+  padding: var(--padding-5xl) var(--padding-lgi) var(--padding-10xl-8);
+  position: relative;
+  gap: var(--gap-16xl-5);
+  min-width: 477px;
+  z-index: 1;
+  text-align: left;
+  font-size: var(--rubik-20-size);
+  color: var(--color-black);
+  font-family: var(--rubik-14);
+}
+@media screen and (max-width: 925px) {
+  .graphTitle {
+    flex-wrap: wrap;
+  }
+  .activityHeaderInner {
+    min-width: 100%;
+  }
+  .activityHeader {
+    flex-wrap: wrap;
+    gap: var(--gap-lg);
+  }
+  .graphContainer {
+    gap: var(--gap-lg);
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .saleGraph {
+    font-size: var(--open-sans-semibold-16-size);
+  }
+  .graphButton {
+    flex-wrap: wrap;
+  }
+  .graphContainer {
+    padding-top: var(--padding-xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

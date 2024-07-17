@@ -1,0 +1,624 @@
+.tumirayi5Icon {
+  height: 56.7px;
+  width: 150px;
+  position: relative;
+  object-fit: cover;
+}
+.logo {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-xl) var(--padding-lg);
+}
+.mainMenu {
+  position: relative;
+  line-height: 14px;
+  display: inline-block;
+  min-width: 65px;
+}
+.section {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-11xl);
+  font-size: var(--light-basic-typography-caption-size);
+}
+.smartHomeIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.dashboard {
+  text-decoration: none;
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+  color: inherit;
+  border-radius: 50%;
+  color: rgba(139, 144, 154, 1);
+  font-size: 12px;
+}
+.dashboard.active {
+  color: blue;
+}
+.badge,
+.div {
+  align-self: stretch;
+}
+.div {
+  width: 9px;
+  position: relative;
+  line-height: 14px;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.badge {
+  width: 22px;
+  border-radius: var(--br-xl);
+  background-color: var(--light-opacity-color-primary-primary-16);
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs) var(--padding-7xs);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--light-basic-typography-paragraph-small-semi-bold-size);
+  color: var(--light-solid-color-primary-primary-500-base);
+  border-radius: 50%;
+  color: white;
+  font-size: 12px;
+}
+.chevronDownIcon {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+  gap: var(--gap-5xs);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.list:hover {
+  color: #3498db;
+}
+.list.active {
+  color: #3498db;
+}
+.shoppingCartIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.orderManagement {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+  font-weight: 600;
+}
+.chevronRightIcon {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list1 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  background-color: var(--color-whitesmoke-200);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+  gap: var(--gap-5xs);
+  color: var(--color-gray-300);
+}
+.usersIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.customers {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.chevronRightIcon1 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list2 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+  gap: var(--gap-5xs);
+}
+.ticketIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.marketing {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.chevronRightIcon2 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list3 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+  gap: var(--gap-5xs);
+}
+.fileTextIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.reports {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.chevronRightIcon3 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list4 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+  gap: var(--gap-5xs);
+}
+.starIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.messages {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.list5 {
+  border-radius: var(--br-7xs);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-4xs) var(--padding-base);
+}
+.appsPages {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  gap: 100;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 var(--padding-sm);
+}
+.products {
+  position: relative;
+  line-height: 14px;
+  display: inline-block;
+  min-width: 60px;
+}
+.section1 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-11xl) var(--padding-11xl) var(--padding-mini);
+  font-size: var(--light-basic-typography-caption-size);
+}
+.circlePlusIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.addProducts {
+  flex: 1;
+  position: relative;
+  font-size: var(--light-basic-typography-paragraph-size);
+  line-height: 22px;
+  font-family: var(--light-basic-typography-paragraph-small-semi-bold);
+  color: var(--color-lightslategray);
+  text-align: left;
+}
+.chevronRightIcon4 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list6 {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-4xs) var(--padding-base);
+  background-color: transparent;
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.boxIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.productList {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.chevronRightIcon5 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.appsPages1,
+.list7 {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.list7 {
+  border-radius: var(--br-7xs);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-4xs) var(--padding-base);
+}
+.appsPages1 {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 var(--padding-sm);
+}
+.admin {
+  position: relative;
+  line-height: 14px;
+  display: inline-block;
+  min-width: 37px;
+}
+.section2 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-11xl) var(--padding-11xl) var(--padding-mini);
+  font-size: var(--light-basic-typography-caption-size);
+}
+.userCircleIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.stores {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.badge1,
+.div1 {
+  align-self: stretch;
+}
+.div1 {
+  width: 9px;
+  position: relative;
+  line-height: 14px;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.badge1 {
+  width: 22px;
+  border-radius: var(--br-xl);
+  background-color: var(--light-opacity-color-primary-primary-16);
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs) var(--padding-7xs);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--light-basic-typography-paragraph-small-semi-bold-size);
+  color: var(--light-solid-color-primary-primary-500-base);
+}
+.chevronRightIcon6 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list8 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-base);
+  gap: var(--gap-5xs);
+}
+.settingsIcon {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.adminRoles {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.chevronRightIcon7 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.components,
+.list9 {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--gap-5xs);
+}
+.list9 {
+  border-radius: var(--br-7xs);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-4xs) var(--padding-base);
+}
+.components {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 var(--padding-sm);
+}
+.userCircleIcon1 {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.manageAdmins {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.badge2,
+.div2 {
+  align-self: stretch;
+}
+.div2 {
+  width: 9px;
+  position: relative;
+  line-height: 14px;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.badge2 {
+  width: 22px;
+  border-radius: var(--br-xl);
+  background-color: var(--light-opacity-color-primary-primary-16);
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs) var(--padding-7xs);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--light-basic-typography-paragraph-small-semi-bold-size);
+  color: var(--light-solid-color-primary-primary-500-base);
+}
+.chevronRightIcon8 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list10 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-11xl);
+  gap: var(--gap-5xs);
+}
+.userCircleIcon2 {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.tickets {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.badge3,
+.div3 {
+  align-self: stretch;
+}
+.div3 {
+  width: 9px;
+  position: relative;
+  line-height: 14px;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.badge3 {
+  width: 22px;
+  border-radius: var(--br-xl);
+  background-color: var(--light-opacity-color-primary-primary-16);
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs) var(--padding-7xs);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--light-basic-typography-paragraph-small-semi-bold-size);
+  color: var(--light-solid-color-primary-primary-500-base);
+}
+.chevronRightIcon9 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list11 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-4xs) var(--padding-11xl);
+  gap: var(--gap-5xs);
+}
+.userCircleIcon3 {
+  height: 22px;
+  width: 22px;
+  position: relative;
+  min-height: 22px;
+}
+.settings {
+  flex: 1;
+  position: relative;
+  line-height: 22px;
+}
+.badge4,
+.div4 {
+  align-self: stretch;
+}
+.div4 {
+  width: 9px;
+  position: relative;
+  line-height: 14px;
+  font-weight: 600;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.badge4 {
+  width: 22px;
+  border-radius: var(--br-xl);
+  background-color: var(--light-opacity-color-primary-primary-16);
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-9xs) var(--padding-7xs);
+  box-sizing: border-box;
+  text-align: center;
+  font-size: var(--light-basic-typography-paragraph-small-semi-bold-size);
+  color: var(--light-solid-color-primary-primary-500-base);
+}
+.chevronRightIcon10 {
+  height: 18px;
+  width: 18px;
+  position: relative;
+  display: none;
+}
+.list12 {
+  align-self: stretch;
+  border-radius: var(--br-7xs);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-4xs) var(--padding-11xl);
+  gap: var(--gap-5xs);
+}
+.list12,
+.menu,
+.menu1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.menu1 {
+  flex: 1;
+  background-color: var(--pure-white);
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 var(--padding-171xl-3);
+}
+.menu {
+  margin-top: -1px;
+  width: 260px;
+  height: 100vh;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  font-size: var(--light-basic-typography-paragraph-size);
+  color: var(--color-lightslategray);
+  font-family: var(--light-basic-typography-paragraph-small-semi-bold);
+}
+@media screen and (max-width: 925px) {
+  .menu1 {
+    padding-bottom: var(--padding-62xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 700px) {
+  .menu1 {
+    padding-bottom: var(--padding-105xl);
+    box-sizing: border-box;
+  }
+  .menu {
+    display: none;
+  }
+}

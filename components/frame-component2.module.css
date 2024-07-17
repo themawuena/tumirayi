@@ -1,0 +1,87 @@
+.thumbnails {
+  height: 64px;
+  width: 64px;
+  position: relative;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-gray-500);
+}
+.productThumbnailpng {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.checkmarks,
+.frameChild {
+  height: 4px;
+  position: relative;
+  border-radius: var(--br-5xs);
+}
+.frameChild {
+  width: 289px;
+  background-color: var(--color-royalblue-100);
+  display: none;
+}
+.checkmarks {
+  width: 137px;
+  background-color: var(--blue);
+  z-index: 1;
+}
+.rectangleParent,
+.thumbnailImages,
+.thumbnailImagesWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangleParent {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-royalblue-100);
+  flex-direction: row;
+}
+.thumbnailImages,
+.thumbnailImagesWrapper {
+  flex-direction: column;
+}
+.thumbnailImages {
+  align-self: stretch;
+  gap: var(--gap-base);
+}
+.thumbnailImagesWrapper {
+  flex: 1;
+  padding: var(--padding-5xs) 0 0;
+  box-sizing: border-box;
+  min-width: 188px;
+}
+.checkSuccessIcon {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.checkSuccessWrapper,
+.thumbnailsParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-base) 0 0;
+}
+.thumbnailsParent {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  background-color: var(--fa-white);
+  flex-direction: row;
+  padding: var(--padding-base) var(--padding-xl);
+  gap: var(--gap-base);
+  text-align: left;
+  font-size: var(--open-sans-semibold-16-size);
+  color: var(--dark-gray);
+  font-family: var(--open-sans-semibold-14);
+}
+@media screen and (max-width: 450px) {
+  .thumbnailsParent {
+    flex-wrap: wrap;
+  }
+}

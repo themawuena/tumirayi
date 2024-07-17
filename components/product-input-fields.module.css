@@ -1,0 +1,211 @@
+.description {
+  text-decoration: none;
+  position: relative;
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  min-width: 115px;
+}
+.descriptionParent,
+.inputFields {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.inputFields {
+  border: 1px solid var(--dark-gray);
+  background-color: transparent;
+  height: 180px;
+  width: auto;
+  outline: 0;
+  border-radius: var(--br-5xs);
+  box-sizing: border-box;
+  padding: var(--padding-3xs) var(--padding-mini) var(--padding-132xl);
+  font-family: var(--copy-button);
+  font-size: var(--open-sans-semibold-16-size);
+  color: var(--neutrals-gray-10);
+}
+.descriptionParent {
+  gap: var(--gap-base);
+}
+.stockQuantity {
+  position: relative;
+  font-weight: 600;
+}
+.placeholder {
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+.inputinitial {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-smi) var(--padding-mini);
+}
+.helperTextHere {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--open-sans-semibold-12-size);
+  font-family: var(--regular-12);
+  color: var(--dark-grey-2);
+  display: none;
+}
+.inputFields1,
+.inputinitialParent {
+  align-self: stretch;
+  flex-direction: column;
+}
+.inputinitialParent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+}
+.inputFields1 {
+  font-size: var(--open-sans-semibold-16-size);
+  color: var(--neutrals-gray-10);
+  font-family: var(--copy-button);
+}
+.frameParent,
+.inputFields1,
+.regularPriceParent,
+.stockQ {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.stockQ {
+  flex: 1;
+  flex-direction: column;
+  gap: var(--gap-base);
+  min-width: 173px;
+}
+.frameParent,
+.regularPriceParent {
+  align-self: stretch;
+  flex-direction: row;
+  gap: var(--gap-5xl);
+}
+.badge,
+.tag1 {
+  position: relative;
+  display: inline-block;
+}
+.tag1 {
+  font-weight: 600;
+  min-width: 35px;
+}
+.badge {
+  letter-spacing: 0.25px;
+  min-width: 43px;
+}
+.tags {
+  border-radius: var(--br-xl);
+  background-color: var(--neutrals-gray-9);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) var(--padding-xs) var(--padding-6xs);
+}
+.badge1 {
+  position: relative;
+  letter-spacing: 0.25px;
+  display: inline-block;
+  min-width: 43px;
+}
+.tags1 {
+  border-radius: var(--br-xl);
+  background-color: var(--neutrals-gray-9);
+  padding: var(--padding-9xs) var(--padding-xs) var(--padding-6xs);
+}
+.inputinitial1,
+.tags1,
+.tagsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.tagsContainer {
+  gap: var(--gap-base);
+}
+.inputinitial1 {
+  align-self: stretch;
+  height: 99px;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  box-sizing: border-box;
+  padding: var(--padding-base);
+}
+.helperTextHere1 {
+  width: 342px;
+  position: relative;
+  font-size: var(--open-sans-semibold-12-size);
+  font-family: var(--regular-12);
+  color: var(--dark-grey-2);
+  display: none;
+  max-width: 100%;
+}
+.tagInputContainer {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+  max-width: 100%;
+}
+.inputFields2 {
+  align-self: stretch;
+  font-size: var(--copy-button-size);
+  color: var(--neutrals-gray-1);
+  font-family: var(--copy-button);
+}
+.inputFields2,
+.productInputFields,
+.tag {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.tag {
+  align-self: stretch;
+  gap: var(--gap-base);
+}
+.productInputFields {
+  flex: 1;
+  border-radius: var(--br-base);
+  background-color: var(--pure-white);
+  gap: var(--gap-5xl);
+  min-width: 361px;
+  text-align: left;
+  font-size: var(--rubik-20-size);
+  color: var(--dark-gray);
+  font-family: var(--rubik-14);
+}
+@media screen and (max-width: 700px) {
+  .frameParent,
+  .regularPriceParent {
+    flex-wrap: wrap;
+  }
+  .productInputFields {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .description,
+  .stockQuantity,
+  .tag1 {
+    font-size: var(--open-sans-semibold-16-size);
+  }
+}

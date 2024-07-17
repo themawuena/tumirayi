@@ -1,0 +1,73 @@
+.productName {
+  text-decoration: none;
+  position: relative;
+  font-weight: 600;
+  color: inherit;
+}
+.placeholder {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-family: var(--copy-button);
+  font-size: var(--open-sans-semibold-16-size);
+  background-color: transparent;
+  height: 19px;
+  flex: 1;
+  position: relative;
+  letter-spacing: 0.5px;
+  color: var(--neutrals-gray-10);
+  text-align: left;
+  display: inline-block;
+  min-width: 250px;
+  max-width: 100%;
+  padding: 0;
+}
+.inputinitial {
+  align-self: stretch;
+  border-radius: var(--br-5xs);
+  border: 1px solid var(--dark-gray);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-smi) var(--padding-mini);
+  max-width: 100%;
+}
+.helperTextHere {
+  width: 342px;
+  position: relative;
+  display: none;
+  max-width: 100%;
+}
+.inputFields,
+.inputinitialParent,
+.productNameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+.inputinitialParent {
+  gap: var(--gap-9xs);
+}
+.inputFields,
+.productNameParent {
+  font-size: var(--open-sans-semibold-12-size);
+  color: var(--dark-grey-2);
+  font-family: var(--regular-12);
+}
+.productNameParent {
+  gap: var(--gap-base);
+  text-align: left;
+  font-size: var(--rubik-20-size);
+  color: var(--dark-gray);
+  font-family: var(--rubik-14);
+}
+@media screen and (max-width: 450px) {
+  .productName {
+    font-size: var(--open-sans-semibold-16-size);
+  }
+}

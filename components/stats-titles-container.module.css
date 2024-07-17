@@ -1,0 +1,119 @@
+.totalOders {
+  text-decoration: none;
+  position: relative;
+  font-weight: 600;
+  color: inherit;
+  display: inline-block;
+  min-width: 78px;
+}
+.phdotsThreeVerticalBoldIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.statsTitles {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.bagHandleIcon {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.statsComparisonIcons {
+  border-radius: var(--br-5xs);
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-3xs);
+}
+.r126500 {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 75px;
+  white-space: nowrap;
+}
+.statsComparisonIconsContain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-base);
+}
+.arrowUpIcon {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 20px;
+}
+.emptyComparisonValues {
+  position: relative;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 40px;
+}
+.statsComparisonValuesContai,
+.statsValues {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.statsComparisonValuesContai {
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
+  font-size: var(--copy-button-size);
+  font-family: var(--open-sans-semibold-14);
+}
+.statsValues {
+  align-self: stretch;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.comparedToOct {
+  align-self: stretch;
+  position: relative;
+  font-size: var(--open-sans-semibold-12-size);
+  font-weight: 600;
+  font-family: var(--open-sans-semibold-14);
+  color: var(--color-gray-400);
+  text-align: right;
+}
+.statsTitlesContainer,
+.statsValuesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.statsValuesContainer {
+  align-self: stretch;
+  gap: var(--gap-9xs);
+  font-size: var(--open-sans-semibold-16-size);
+}
+.statsTitlesContainer {
+  flex: 1;
+  border-radius: var(--br-base);
+  background-color: var(--fa-white);
+  padding: var(--padding-5xl) var(--padding-base);
+  box-sizing: border-box;
+  gap: var(--gap-5xs);
+  min-width: 200px;
+  max-width: 266px;
+  text-align: left;
+  font-size: var(--copy-button-size);
+  color: var(--color-black);
+  font-family: var(--rubik-14);
+}
