@@ -22,45 +22,7 @@
   color: inherit;
   z-index: 1;
 }
-.breadcrumbTitle {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-11xs) 0 0;
-}
-.calendarIcon,
-.oct112023 {
-  position: relative;
-  z-index: 1;
-}
-.calendarIcon {
-  height: 15px;
-  width: 15px;
-  overflow: hidden;
-  flex-shrink: 0;
-  min-height: 24px;
-}
-.oct112023 {
-  font-weight: 600;
-  font-size: 15px;
-}
-.months {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-12xs) 0 0;
-}
-.calendarContainer {
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: var(--gap-5xs);
-  color: var(--color-black);
-  background-color: blue;
-}
 .breadcrumb,
-.calendarContainer,
 .header {
   display: flex;
   align-items: flex-start;
@@ -73,22 +35,64 @@
   font-size: var(--open-sans-semibold-16-size);
   color: var(--color-gray-700);
   font-family: var(--open-sans-semibold-14);
-  background-color: aquamarine;
+}
+.AddButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-12xs) 0 0;
+  background-color: rgba(35, 35, 33, 1);
+  height: 40px;
+  width: 200px;
+  border-radius: 10px;
+  gap: 10px;
+}
+.Buttontitle {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.calendarIcon {
+  /* color: white; */
+}
+.user,
+.header {
+  display: flex;
+}
+.user {
+  justify-items: center;
+  align-self: stretch;
+  font-size: var(--open-sans-semibold-16-size);
+  color: var(--color-gray-700);
+  font-family: var(--open-sans-semibold-14);
+}
+.pageTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-9xs);
 }
 .header {
   width: 100%;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--gap-11xs);
+  flex-direction: row;
+  justify-content: space-between;
   flex-shrink: 0;
   max-width: 100%;
-  background-color: aqua;
 }
 @media screen and (max-width: 700px) {
   .pageTitle {
     font-size: var(--font-size-lgi);
   }
-  .breadcrumb {
+  .user {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 450px) {
+  .graphContainerParent {
     flex-wrap: wrap;
   }
 }

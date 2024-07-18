@@ -7,10 +7,10 @@ const Header = ({ title = "Kkksks" }) => {
     <>
       <div className={styles.frameChild} />
       <div className={styles.header}>
-        <a className={styles.dashboard1}>Order</a>
+        <a className={styles.pageTitle}>{title}</a>
         <div className={styles.breadcrumb}>
-          <div className={styles.homeDashboardContainer}>
-            <a className={styles.homeDashboard}>{`Home > ${title}`}</a>
+          <div className={styles.breadContainer}>
+            <a className={styles.breadTitle}>{`Home > ${title}`}</a>
           </div>
           <div className={styles.calendarContainer}>
             <img

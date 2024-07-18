@@ -325,17 +325,17 @@
   justify-content: flex-start;
 }
 .rectangleParent {
+  height: 1024px;
   flex: 1;
-  background-color: var(--fa-white);
+  background-color: white;
   flex-direction: column;
-  padding: var(--padding-60xl) var(--padding-7xs) 187px;
+  padding: var(--padding-lgi) var(--padding-4xl) 371px;
   box-sizing: border-box;
-  gap: var(--gap-sm);
-  flex-shrink: 0;
+  gap: var(--gap-5xl);
   text-align: left;
-  font-size: var(--copy-button-size);
-  color: var(--dark-gray);
-  font-family: var(--copy-button);
+  font-size: var(--rubik-24-size);
+  color: var(--color-black);
+  font-family: var(--rubik-14);
 }
 .products {
   width: 100%;

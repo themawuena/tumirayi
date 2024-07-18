@@ -1,38 +1,15 @@
-// import Menu from "../../../components/menu";
 import StatsTitlesContainer from "../../components/stats-titles-container";
 import GraphContainer from "../../components/graph-container";
 import BestSellerItems from "../../components/best-seller-items";
 import OrderList from "../../components/order-list";
 import styles from "./dashboard.module.css";
+import Header from "../../components/Header/Header";
 
 const Page = () => {
   return (
     <div className={styles.dashboard}>
       <main className={styles.rectangleParent}>
-        <div className={styles.frameChild} />
-        <div className={styles.header}>
-          <a className={styles.dashboard1}>Order</a>
-          <div className={styles.breadcrumb}>
-            <div className={styles.homeDashboardContainer}>
-              <a
-                className={styles.homeDashboard}
-              >{`Home > Order Management`}</a>
-            </div>
-            <div className={styles.calendarContainer}>
-              <img
-                className={styles.calendarIcon}
-                loading="lazy"
-                alt=""
-                src="/calendar.svg"
-              />
-              <div className={styles.months}>
-                <div className={styles.oct112023}>
-                  Oct 11,2023 - Nov 11,2022
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Header title={"Dashboard"} />
         <nav className={styles.orderStats}>
           <StatsTitlesContainer
             totalOders="Total Oders"

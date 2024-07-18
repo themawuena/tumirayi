@@ -1,28 +1,13 @@
 import FrameComponent from "../../components/frame-component";
+import Header from "../../components/Header/ProductHeader";
 import styles from "./products.module.css";
 
 const Page = () => {
   return (
     <div className={styles.products}>
       <main className={styles.rectangleParent}>
-        <div className={styles.frameChild} />
+        <Header title="Products" />
         <section className={styles.frameParent}>
-          <div className={styles.frameGroup}>
-            <div className={styles.allProductsParent}>
-              <a className={styles.allProducts}>All Products</a>
-              <div className={styles.homeAll}>{`Home > All Products`}</div>
-            </div>
-            {/* <button className={styles.button}>
-              <button className={styles.styleLayer}>
-                <img
-                  className={styles.addCircleIcon}
-                  alt=""
-                  src="/add-circle.svg"
-                />
-                <div className={styles.button1}>ADD NEW PRODUCT</div>
-              </button>
-            </button> */}
-          </div>
           <div className={styles.productGrid}>
             <FrameComponent />
             <FrameComponent />
