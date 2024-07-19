@@ -116,7 +116,7 @@ const SideBar = ({ className = "", menuHeight, menuOverflow }: Props) => {
   };
 
   return (
-    <div className={`flex flex-col ${className}  border-r-2`} style={menuStyle}>
+    <div className={`flex flex-col ${className}  border-r-2 h-full`} style={menuStyle}>
       <div className="flex flex-col w-full">
         <div className="flex items-center justify-start p-6">
           <Image
