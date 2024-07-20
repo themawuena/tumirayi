@@ -9,7 +9,7 @@ import {
   IconSettings,
 } from "@tabler/icons-react";
 
-const SearchFilter = () => (
+export const SearchFilter = () => (
   <Flex direction={"row"} justify={"space-between"}>
     <TextInput
       style={{

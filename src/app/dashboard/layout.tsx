@@ -14,10 +14,10 @@ const Layout = ({ children }: { children: any }) => {
 
   return (
     <Grid gutter={0} style={{ display: "flex", flexDirection: "row" }}>
-      <Grid.Col span={2.1} className="bg-white h-screen">
+      <Grid.Col span={2.1} className="bg-white h-full">
         <SideBar menuHeight={""} menuOverflow={""} />
       </Grid.Col>
-      <Grid.Col span={9.9} className="bg-[#FAFAFA] h-screen px-10 py-5">
+      <Grid.Col span={9.9} className="bg-[#FAFAFA] h-full px-10 py-5">
         {children}
       </Grid.Col>
     </Grid>

@@ -1,9 +1,7 @@
 import { SetStateAction, useState } from "react";
 import MainHeader from "@/Components/Header/MainHeader";
 import OrderTabs from "@/Components/Tabs/Orders";
-import CustomTable from "@/Components/Tables/Table";
-import { Box, Flex, TextInput } from "@mantine/core";
-import { IconSearch } from "@tabler/icons-react";
+import { Box, Flex } from "@mantine/core";
 
 const OrderManagement = () => {
   const [activeTab, setActiveTab] = useState("Pending");

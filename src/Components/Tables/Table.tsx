@@ -1,87 +1,6 @@
 import { Badge, Table } from "@mantine/core";
-
-const elements = [
-  {
-    order_id: 2929,
-    createdAt: "2 minutes ago",
-    customer: "Joseph Wheeler",
-    total: 654,
-    profit: 100,
-    status: "confirmed",
-  },
-  {
-    order_id: 7733,
-    createdAt: "10 minutes ago",
-    customer: "Joseph Wheeler",
-    total: 654,
-    profit: 100,
-    status: "pending",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "shipped",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "processing",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "delivered",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "picked",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "pending",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "pending",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "pending",
-  },
-  {
-    order_id: 7374,
-    createdAt: "10 minutes ago",
-    customer: "Nitrogen",
-    total: 654,
-    profit: 100,
-    status: "pending",
-  },
-];
+import { OrdersData } from "./_Data";
+import { IconCircleCaretDown } from "@tabler/icons-react";
 
 function CustomTable() {
   const COLORS: {
@@ -100,7 +19,7 @@ function CustomTable() {
     picked: { name: "Picked", color: "#0F60FF", bg: "#0F60FF29" },
   };
 
-  const rows = elements?.map((element) => (
+  const rows = OrdersData?.map((element) => (
     <Table.Tr key={element.order_id}>
       <Table.Td>#{element.order_id}</Table.Td>
       <Table.Td>{element.createdAt}</Table.Td>
@@ -128,6 +47,9 @@ function CustomTable() {
         >
           {COLORS?.[element.status].name}
         </Badge>
+      </Table.Td>
+      <Table.Td>
+        <IconCircleCaretDown size={20} stroke={2} color="#8B909A" />
       </Table.Td>
     </Table.Tr>
   ));
@@ -163,6 +85,7 @@ function CustomTable() {
           <Table.Th>TOTAL</Table.Th>
           <Table.Th>PROFIT</Table.Th>
           <Table.Th>STATUS</Table.Th>
+          <Table.Th></Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>{rows}</Table.Tbody>

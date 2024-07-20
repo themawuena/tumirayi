@@ -15,7 +15,7 @@ const Products = () => {
         <ProductCard />
         <ProductCard />
       </SimpleGrid>
-      <Pagination total={10} />
+      <Pagination size={"sm"} total={10} />
     </Flex>
   );
 };
