@@ -44,7 +44,7 @@ export function CustomerTable() {
           color: "#23272E",
           fontSize: "12px",
           fontWeight: "400",
-          padding: "10px",
+          padding: "15px",
         },
       }}
       style={{

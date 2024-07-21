@@ -91,20 +91,26 @@ function Page() {
               flexDirection: "row",
               justifyContent: "space-between",
             }}
+            mah={70}
           >
             <Text fw={"600"}>Sale Graph</Text>
-            <Box>
-              <Button.Group >
-                <Button variant="default">First</Button>
-                <Button variant="default">Second</Button>
-                <Button variant="default">Third</Button>
-              </Button.Group>
-            </Box>
+            <Group m={0} p={0}>
+              <Button h={25} variant="outline">
+                WEEKLY
+              </Button>
+              <Button bg={"#003F62"} h={25} variant="filled">
+                MONTHLY
+              </Button>
+              <Button m={0} h={25} variant="outline">
+                YEARLY
+              </Button>
+              </Group>
           </Card>
           <LineCart />
         </Box>
         <Box w={"30%"}>
           <Card
+            mah={70}
             style={{
               display: "flex",
               flexDirection: "row",

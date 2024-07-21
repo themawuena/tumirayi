@@ -1,9 +1,7 @@
 "use client";
-import MainHeader from "@/Components/Header/MainHeader";
 import {
   Box,
   Button,
-  Card,
   Flex,
   Grid,
   Group,
@@ -11,7 +9,7 @@ import {
   Textarea,
   TextInput,
 } from "@mantine/core";
-import { IconArrowRight, IconDownload, IconPhoto } from "@tabler/icons-react";
+import { IconPhoto } from "@tabler/icons-react";
 
 const AddAStore = () => {
   let LabelStyle = {

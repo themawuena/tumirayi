@@ -3,8 +3,6 @@ import {
   Card,
   Image,
   Text,
-  Badge,
-  Button,
   Group,
   Box,
   Flex,
@@ -12,20 +10,19 @@ import {
   Divider,
   Progress,
 } from "@mantine/core";
-import {
-  IconArrowsLeftRight,
-  IconArrowUp,
-  IconDots,
-  IconMessageCircle,
-  IconPhoto,
-  IconSearch,
-  IconSettings,
-  IconTrash,
-} from "@tabler/icons-react";
+import { IconArrowUp, IconDots, IconEdit, IconEye } from "@tabler/icons-react";
+import { usePathname, useRouter } from "next/navigation";
 
 function MenuButton() {
+  const router = useRouter();
+  const pathName = usePathname();
+
+  const HandleNavigation = (id: any) => {
+    router.push(`${pathName}/view/${id}`);
+  };
+
   return (
-    <Menu shadow="md" width={200}>
+    <Menu shadow="0" position="bottom-end" width={150}>
       <Menu.Target>
         <Flex
           style={{
@@ -42,31 +39,17 @@ function MenuButton() {
       </Menu.Target>
 
       <Menu.Dropdown>
-        <Menu.Label>Application</Menu.Label>
-        <Menu.Item leftSection={<IconSettings size={14} />}>Settings</Menu.Item>
-        <Menu.Item leftSection={<IconMessageCircle size={14} />}>
-          Messages
-        </Menu.Item>
-        <Menu.Item leftSection={<IconPhoto size={14} />}>Gallery</Menu.Item>
         <Menu.Item
-          leftSection={<IconSearch size={14} />}
-          rightSection={
-            <Text size="xs" c="dimmed">
-              ⌘K
-            </Text>
-          }
+          onClick={() => HandleNavigation(3)}
+          leftSection={<IconEye size={14} />}
         >
-          Search
+          View
         </Menu.Item>
-
-        <Menu.Divider />
-
-        <Menu.Label>Danger zone</Menu.Label>
-        <Menu.Item leftSection={<IconArrowsLeftRight size={14} />}>
-          Transfer my data
-        </Menu.Item>
-        <Menu.Item color="red" leftSection={<IconTrash size={14} />}>
-          Delete my account
+        <Menu.Item
+          onClick={() => HandleNavigation(3)}
+          leftSection={<IconEdit size={14} />}
+        >
+          Edit
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>

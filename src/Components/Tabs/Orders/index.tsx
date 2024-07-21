@@ -1,13 +1,8 @@
-import { Box, Button, Flex, Tabs, Text, TextInput } from "@mantine/core";
+import { Button, Flex, Tabs, Text, TextInput } from "@mantine/core";
 import React from "react";
 
 import CustomTable from "@/Components/Tables/Table";
-import {
-  IconMessageCircle,
-  IconPhoto,
-  IconSearch,
-  IconSettings,
-} from "@tabler/icons-react";
+import { IconSearch } from "@tabler/icons-react";
 
 export const SearchFilter = () => (
   <Flex direction={"row"} justify={"space-between"}>
@@ -33,7 +28,9 @@ export const SearchFilter = () => (
       w={200}
       bg={"white"}
     >
-      <Text size="15" c={"#8B909A"}>Filter by date range</Text>
+      <Text size="15" c={"#8B909A"}>
+        Filter by date range
+      </Text>
     </Button>
   </Flex>
 );

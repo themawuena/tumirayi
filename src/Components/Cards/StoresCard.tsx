@@ -10,18 +10,18 @@ import {
   Divider,
   Progress,
 } from "@mantine/core";
-import {
-  IconArrowsLeftRight,
-  IconArrowUp,
-  IconDots,
-  IconMessageCircle,
-  IconPhoto,
-  IconSearch,
-  IconSettings,
-  IconTrash,
-} from "@tabler/icons-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export function StoresCard() {
+  const router = useRouter();
+  const pathName = usePathname();
+
+  const handleViewProducts = () => {
+    router.push(`${pathName}/product`);
+  };
+
   return (
     <Card bg={"#FAFAFA"} shadow="0" p="xs" radius="md">
       <Flex direction={"row"} gap={5}>
@@ -63,7 +63,14 @@ export function StoresCard() {
           Edit Store
         </Text>
         <Divider size="xs" />
-        <Text ta={"end"} py={6} size="14px" fw={600} c={"#646464"}>
+        <Text
+          onClick={() => handleViewProducts()}
+          ta={"end"}
+          py={6}
+          size="14px"
+          fw={600}
+          c={"#646464"}
+        >
           Store Products
         </Text>
       </Card>
