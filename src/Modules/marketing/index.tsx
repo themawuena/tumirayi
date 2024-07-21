@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex } from "@mantine/core";
-import MainHeader from "@/Components/Header/MainHeader";
+import MainHeader from "@/Components/Header/MainHeader3";
 
 const Marketing = () => {
   return (

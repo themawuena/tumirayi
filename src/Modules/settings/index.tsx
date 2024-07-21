@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import MainHeader from "@/Components/Header/MainHeader";
+import MainHeader from "@/Components/Header/MainHeader3";
 import { Flex } from "@mantine/core";
 
 const Settings = () => {

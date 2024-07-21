@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import MainHeader from "@/Components/Header/MainHeader";
+import MainHeader from "@/Components/Header/MainHeader3";
 import { Flex, Pagination } from "@mantine/core";
 import { CustomerTable } from "@/Components/Tables/Customers";
 import { SearchFilter } from "@/Components/Tabs/Orders";

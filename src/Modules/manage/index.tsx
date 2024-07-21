@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { Flex } from "@mantine/core";
-import MainHeader from "@/Components/Header/MainHeader";
+import MainHeader from "@/Components/Header/MainHeader3";
 
 const ManageAdmins = () => {
   return (
-    <Flex>
+    <Flex direction={"column"} gap={20}>
       <MainHeader title="Manage Admins" />
     </Flex>
   );
