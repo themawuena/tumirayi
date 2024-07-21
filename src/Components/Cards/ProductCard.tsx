@@ -43,13 +43,15 @@ function MenuButton() {
 
       <Menu.Dropdown>
         <Menu.Label>Application</Menu.Label>
-        <Menu.Item icon={<IconSettings size={14} />}>Settings</Menu.Item>
-        <Menu.Item icon={<IconMessageCircle size={14} />}>Messages</Menu.Item>
-        <Menu.Item icon={<IconPhoto size={14} />}>Gallery</Menu.Item>
+        <Menu.Item leftSection={<IconSettings size={14} />}>Settings</Menu.Item>
+        <Menu.Item leftSection={<IconMessageCircle size={14} />}>
+          Messages
+        </Menu.Item>
+        <Menu.Item leftSection={<IconPhoto size={14} />}>Gallery</Menu.Item>
         <Menu.Item
-          icon={<IconSearch size={14} />}
+          leftSection={<IconSearch size={14} />}
           rightSection={
-            <Text size="xs" color="dimmed">
+            <Text size="xs" c="dimmed">
               ⌘K
             </Text>
           }
@@ -60,10 +62,10 @@ function MenuButton() {
         <Menu.Divider />
 
         <Menu.Label>Danger zone</Menu.Label>
-        <Menu.Item icon={<IconArrowsLeftRight size={14} />}>
+        <Menu.Item leftSection={<IconArrowsLeftRight size={14} />}>
           Transfer my data
         </Menu.Item>
-        <Menu.Item color="red" icon={<IconTrash size={14} />}>
+        <Menu.Item color="red" leftSection={<IconTrash size={14} />}>
           Delete my account
         </Menu.Item>
       </Menu.Dropdown>
@@ -100,7 +102,7 @@ export function ProductCard() {
       </Flex>
 
       <Group mt="md" mb="xs" gap={0}>
-        <Text fw={700} c="#232321">
+        <Text fw={600} c="#232321">
           Summary
         </Text>
         <Text size="sm" fw={"400"} c="#5E5E5C">

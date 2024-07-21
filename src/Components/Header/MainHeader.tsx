@@ -3,7 +3,7 @@ import React from "react";
 import { IconBell } from "@tabler/icons-react";
 interface Props {
   title: string;
-  section?: "Home" | "Product" | "Admin";
+  section?: "Home" | "Product" | "Admin" | "Stores";
 }
 const MainHeader = ({ title, section = "Home" }: Props) => {
   return (

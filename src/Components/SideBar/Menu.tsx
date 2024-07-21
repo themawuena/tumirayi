@@ -14,7 +14,10 @@ import {
   IconStar,
   IconSettings,
   IconUserCircle,
+  IconCirclePlus,
+  IconBox,
 } from "@tabler/icons-react";
+import { Text } from "@mantine/core";
 
 interface Props {
   className?: string;
@@ -59,26 +62,38 @@ const SideBar = ({ className = "", menuHeight, menuOverflow }: Props) => {
 
   const ProductLinks = [
     {
-      id: 7,
-      name: "Add Products",
-      route: "/dashboard/product/new",
-      icon: IconSmartHome,
+      id: 9,
+      name: "Add Store",
+      route: "/dashboard/stores/add",
+      icon: IconCirclePlus,
     },
+    { id: 9, name: "My Stores", route: "/dashboard/stores", icon: IconBox },
     {
-      id: 8,
-      name: "Product List",
-      route: "/dashboard/product",
-      icon: IconShoppingCart,
+      id: 9,
+      name: "Add Category",
+      route: "/dashboard/stores/category",
+      icon: IconUserCircle,
     },
+    // {
+    //   id: 7,
+    //   name: "Add Products",
+    //   route: "/dashboard/product/new",
+    //   icon: IconSmartHome,
+    // },
+    // {
+    //   id: 8,
+    //   name: "Product List",
+    //   route: "/dashboard/product",
+    //   icon: IconShoppingCart,
+    // },
   ];
 
   const AdminLinks = [
-    { id: 9, name: "Stores", route: "/dashboard/stores", icon: IconUserCircle },
     {
       id: 10,
       name: "Admin Roles",
       route: "/dashboard/roles",
-      icon: IconSettings,
+      icon: IconUserCircle,
     },
     {
       id: 11,
@@ -86,7 +101,7 @@ const SideBar = ({ className = "", menuHeight, menuOverflow }: Props) => {
       route: "/dashboard/manage",
       icon: IconUserCircle,
     },
-    { id: 12, name: "Tickets", route: "/dashboard/tickets", icon: IconTicket },
+    { id: 12, name: "Tickets", route: "/dashboard/tickets", icon: IconUserCircle },
     {
       id: 13,
       name: "Settings",
@@ -116,7 +131,10 @@ const SideBar = ({ className = "", menuHeight, menuOverflow }: Props) => {
   };
 
   return (
-    <div className={`flex flex-col ${className}  border-r-2 h-full`} style={menuStyle}>
+    <div
+      className={`flex flex-col ${className}  border-r-2 h-full`}
+      style={menuStyle}
+    >
       <div className="flex flex-col w-full">
         <div className="flex items-center justify-start p-6">
           <Image
@@ -129,20 +147,26 @@ const SideBar = ({ className = "", menuHeight, menuOverflow }: Props) => {
           />
         </div>
         {/* MAIN MENU */}
-        <div className="flex items-center justify-start p-2.5">
-          <div className="text-sm text-[#8B909A]">MAIN MENU</div>
+        <div className="flex items-center justify-start px-2.5 pt-2.5">
+          <Text c={"#8B909A"} size="12px">
+            MAIN MENU
+          </Text>
         </div>
         <div className="flex flex-col gap-2 p-2.5">
           {renderLinks(MainLinks)}
         </div>
-        <div className="flex items-center justify-start p-2.5 mt-5">
-          <div className="text-sm text-[#8B909A]">PRODUCTS</div>
+        <div className="flex items-center justify-start px-2.5 pt-2.5 mt-3">
+          <Text c={"#8B909A"} size="12px">
+          STORES
+          </Text>
         </div>
         <div className="flex flex-col gap-2 p-2.5">
           {renderLinks(ProductLinks)}
         </div>
-        <div className="flex items-center justify-start p-2.5 mt-5">
-          <div className="text-sm text-[#8B909A]">ADMIN</div>
+        <div className="flex items-center justify-start px-2.5 pt-2.5 mt-3">
+          <Text c={"#8B909A"} size="12px">
+            ADMIN
+          </Text>
         </div>
         <div className="flex flex-col gap-2 p-2.5">
           {renderLinks(AdminLinks)}
