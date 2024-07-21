@@ -21,7 +21,7 @@ const AddACategory = () => {
   };
 
   return (
-    <Flex bg={"#ffffff"} h={"100%"} direction={"column"} px={20} pt={100}>
+    <Flex bg={"#ffffff"} className="h-screen" style={{borderRadius: 10}} direction={"column"} px={20} pt={100}>
       <Flex gap={20} direction={"column"}>
         <TextInput
           w={"50%"}

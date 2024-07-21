@@ -5,11 +5,12 @@ import {
   Flex,
   Grid,
   Group,
+  Progress,
   Text,
   Textarea,
   TextInput,
 } from "@mantine/core";
-import { IconPhoto } from "@tabler/icons-react";
+import { IconCheck, IconPhoto } from "@tabler/icons-react";
 
 const AddAStore = () => {
   let LabelStyle = {
@@ -23,7 +24,7 @@ const AddAStore = () => {
   };
 
   return (
-    <Grid gutter={50} bg={"#ffffff"} h={"100%"} px={20}>
+    <Grid gutter={50} bg={"#ffffff"} className="h-screen" style={{borderRadius: 10}} px={20}>
       <Grid.Col span={7}>
         <Flex gap={20} direction={"column"}>
           <TextInput
@@ -100,6 +101,45 @@ const AddAStore = () => {
                 </Text>
               </Flex>
             </Group>
+          </Flex>
+          {/* PHOTOS */}
+          <Flex
+          mt={10}
+            gap={10}
+            bg={"#FAFAFA"}
+            p={10}
+            justify={"space-between"}
+            align={"center"}
+          >
+            <Flex gap={10}>
+              <Box
+                style={{ borderRadius: 8 }}
+                w={50}
+                h={50}
+                bg={"#00000033"}
+              ></Box>
+              <Flex
+                gap={10}
+                justify={"flex-start"}
+                align={"flex-start"}
+                direction={"column"}
+              >
+                <Text c={"dark"} ta={"center"}>
+                  Photo.png
+                </Text>
+                <Progress bg={"#4A69E2"} w={300} value={50} color="#003F62" />
+              </Flex>
+            </Flex>
+            <Flex
+              align={"center"}
+              justify={"center"}
+              style={{ borderRadius: 20 }}
+              w={20}
+              h={20}
+              bg={"#003F62"}
+            >
+              <IconCheck stroke={3} size={15} color="white" />
+            </Flex>
           </Flex>
           {/* Buttons */}
           <Group justify="center" mt={10}>
