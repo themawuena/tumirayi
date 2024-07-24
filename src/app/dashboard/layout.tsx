@@ -3,13 +3,14 @@
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import SideBar from "@/Components/SideBar/Menu";
-import { Box, Flex, Grid } from "@mantine/core";
+import { Grid } from "@mantine/core";
+import { useEffect } from "react";
 
 const Layout = ({ children }: { children: any }) => {
-  const session = useSession();
+  const { data, status } = useSession();
 
-  if (!session.data?.user) {
-    redirect("/");
+  if (status === "unauthenticated") {
+    redirect("/auth/signin");
   }
 
   return (

@@ -2,148 +2,175 @@
 "use client";
 import { redirect, useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
+import {
+  Box,
+  Button,
+  Card,
+  Center,
+  Flex,
+  Notification,
+  PasswordInput,
+  Text,
+  TextInput,
+} from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { useState } from "react";
+import { authenticate } from "@/app/actions";
+import { notifications } from "@mantine/notifications";
 
 export default function Home() {
   // * HOOKS
   const session = useSession();
   const router = useRouter();
 
-  if (session.data?.user) {
-    redirect("/dashboard");
-  }
+  // if (session.status == "authenticated") {
+  //   redirect("/dashboard");
+  // }
 
-  const handleLogin = async (
-    e: { preventDefault: () => void },
-    email: any,
-    password: any
-  ) => {
-    e.preventDefault();
-
-    console.log(email, password);
-
-    const result = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
-
-    console.log(result);
-    if (!result?.error) {
-      router.push("/dashboard");
-    } else {
-      console.log(result.error);
-      console.log("signed in failed");
-    }
+  const handleRgisterNav = () => {
+    router.push("/auth/signup");
   };
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [show, setshow] = useState<boolean>(false);
+
+  // FORMS
+  const form = useForm({
+    mode: "uncontrolled",
+    initialValues: {
+      email: "",
+      password: "",
+    },
+
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+      password: (value) => (value.length == 0 ? "Password is required" : null),
+    },
+  });
+
+  const handleLogin = async (values: any) => {
+    setIsLoading(true);
+    const { email, password } = values;
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
+
+      if (result && !result.error) {
+        notifications.show({
+          title: "Sign-in Successful",
+          message: "Sign-in was successful",
+          color: "green",
+        });
+        router.push("/dashboard");
+      } else {
+        notifications.show({
+          title: "Sign-in failed",
+          message: result?.error || "Sign-in failed",
+          color: "red",
+        });
+      }
+      setIsLoading(false);
+      return result;
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+    }
+    setIsLoading(false);
+  };
+
+  
   return (
-    <>
-      <main className="flex items-center justify-center h-screen w-screen">
-        {/* CARD */}
-        <div
-          className={`flex flex-col items-end justify-start p-7 w-[500px] overflow-hidden border border-black rounded-md`}
-        >
-          <div className="flex flex-row items-start justify-center w-full py-0 pr-1">
-            <img
-              className="h-14 w-38 object-cover"
-              loading="lazy"
-              alt=""
-              src="/tumirayi-3@2x.png"
-            />
-          </div>
-          <div className="flex flex-row justify-end w-full p-0 pl-3 pr-0">
-            <div className="flex flex-col items-start justify-start gap-2 w-full">
-              <div className="flex flex-col items-start justify-start gap-0 w-40">
-                <div className="flex flex-row items-start justify-start p-0 pl-3">
-                  <b className="relative inline-block min-w-[65px] uppercase leading-5">
-                    Register
-                  </b>
-                </div>
-                <div className="relative text-sm font-semibold leading-12 text-gray-100 mt-[-10.5px]">
-                  Create a new account
-                </div>
-              </div>
-              <div className="flex flex-row justify-start w-full p-0 pl-3 pr-0 text-gray-200">
-                <div className="flex flex-col items-start justify-start gap-20 w-full pt-4">
-                  <div className="relative overflow-hidden h-[39px] hidden text-xs text-blue-600">
-                    <img
-                      className="absolute top-[37px] left-0 w-[375px] h-[2px] object-cover"
-                      alt=""
-                      src="/object@2x.png"
-                    />
-                    <div className="absolute top-[-12.5px] left-0 leading-9 font-light w-20">
-                      Full Name
-                    </div>
-                  </div>
-                  <div className="relative overflow-hidden h-5 w-full">
-                    <img
-                      className="absolute top-[21px] left-0 w-[375px] h-[1px] object-cover"
-                      loading="lazy"
-                      alt=""
-                      src="/object-1@2x.png"
-                    />
-                    <div className="absolute top-[-11px] left-0 leading-9 w-24 z-10">
-                      Full Name
-                    </div>
-                  </div>
-                  <div className="relative overflow-hidden h-5 w-full">
-                    <img
-                      className="absolute top-[21px] left-0 w-[375px] h-[1px] object-cover"
-                      loading="lazy"
-                      alt=""
-                      src="/object-1@2x.png"
-                    />
-                    <div className="absolute top-[-11px] left-0 leading-9 w-32 z-10">
-                      Email Address
-                    </div>
-                  </div>
-                  <div className="relative overflow-hidden h-5 w-full">
-                    <img
-                      className="absolute top-[21px] left-0 w-[375px] h-[1px] object-cover"
-                      loading="lazy"
-                      alt=""
-                      src="/object-1@2x.png"
-                    />
-                    <div className="absolute top-[-11px] left-0 leading-9 min-w-[66px] z-10">
-                      Password
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-row items-start justify-start w-[198px] h-4 overflow-hidden p-0 pl-4 pr-4 relative">
-                <div className="relative leading-9 w-5 flex-shrink-0 z-10 mt-[-8.5px]">
-                  
-                </div>
-                <input
-                  className="absolute top-0 left-0 h-full w-4 m-0"
-                  type="checkbox"
+    <form onSubmit={form.onSubmit(handleLogin)}>
+      <Flex
+        direction={"column"}
+        w={"100%"}
+        className="flex items-center justify-center h-screen w-screen"
+      >
+        <Card w={"500px"} withBorder style={{ gap: 60 }}>
+          <Box>
+            <Center>
+              <img
+                className="h-14 w-38 object-cover"
+                loading="lazy"
+                alt=""
+                src="/tumirayi-3@2x.png"
+              />
+            </Center>
+          </Box>
+          <Flex direction={"column"} gap={20}>
+            <Flex gap={15} px={30} direction={"column"}>
+              <Text size="15px" fw={"bold"}>
+                LOGIN
+              </Text>
+              <Text size="15px" fw={"400"}>
+                Sign into your account
+              </Text>
+            </Flex>
+            <Flex px={30} gap={30} direction={"column"}>
+              <TextInput
+                withAsterisk
+                w={"100%"}
+                variant="unstyled"
+                styles={{
+                  input: {
+                    borderTopWidth: 0,
+                    borderLeftWidth: 0,
+                    borderRightWidth: 0,
+                    borderBottomWidth: 1,
+                    borderColor: "#E6E6E6",
+                  },
+                }}
+                placeholder="your@email.com"
+                key={form.key("email")}
+                {...form.getInputProps("email")}
+              />
+
+              <Flex direction={"column"} gap={10}>
+                <PasswordInput
+                  w={"100%"}
+                  variant="unstyled"
+                  withAsterisk
+                  styles={{
+                    input: {
+                      borderTopWidth: 0,
+                      borderLeftWidth: 0,
+                      borderRightWidth: 0,
+                      borderBottomWidth: 1,
+                      borderColor: "#E6E6E6",
+                    },
+                  }}
+                  placeholder="Password"
+                  key={form.key("password")}
+                  {...form.getInputProps("password")}
                 />
-                <div className="relative font-semibold text-sm leading-9 w-[205px] mt-[-9.5px] flex-shrink-0 text-gray-200 flex items-center">
-                  <span className="w-full">
-                    <span>{`I accept `}</span>
-                    <span className="text-blue-600">{`Terms & Conditions`}</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-            onClick={(e) => handleLogin(e, "test1@donotreply.com", "pass")}
-            className="cursor-pointer border-0 p-2 pl-12 pr-12 bg-blue-600 w-[140px] shadow-md flex items-start justify-start hover:bg-blue-800"
-          >
-            <div className="hidden relative h-11 w-36 shadow-md bg-blue-600" />
-            <b className="relative text-sm leading-5 text-white uppercase flex-grow text-center z-10">
-              Register
-            </b>
-          </button>
-          <div className="flex flex-row items-start justify-end w-full p-0 pl-[34rem] pr-[34rem] text-center text-sm font-semibold text-gray-100">
-            <span>
-              <span>{`Already have an Account?  `}</span>
-              <span className="text-blue-600">{`Login Here`}</span>
-            </span>
-          </div>
-        </div>
-      </main>
-    </>
+              </Flex>
+              <Flex justify={"end"}>
+                <Button loading={isLoading} type="submit">
+                  Sign In
+                </Button>
+              </Flex>
+              <Text
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                }}
+                c={"#7C7C7C"}
+                ta={"center"}
+              >
+                Don`t have an Account Yet?
+                <Text ml={4} c={"#438AFE"} onClick={handleRgisterNav}>
+                  Register Here
+                </Text>
+              </Text>
+            </Flex>
+          </Flex>
+        </Card>
+      </Flex>
+    </form>
   );
 }

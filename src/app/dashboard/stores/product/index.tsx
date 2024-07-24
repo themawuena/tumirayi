@@ -1,14 +1,15 @@
-import ViewDetails from "@/Modules/product/ViewDetails";
+import Products from "@/Modules/product";
 import React from "react";
 
 const page = ({ params }: { params: { id: string } }) => {
+  console.log(params.id, "Hello");
+
   const items = [
     { title: "Stores", href: "/dashboard/stores" },
     { title: "Store", href: "/dashboard/stores/store" },
-    { title: "Product", href: "#" },
+    { title: "Products", href: "#" },
   ];
-
-  return <ViewDetails items={items} params={params} />;
+  return <Products param={params} items={items} />;
 };
 
 export default page;

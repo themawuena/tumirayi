@@ -1,33 +1,39 @@
 "use client";
-import { Flex } from "@mantine/core";
+import { Center, Flex, Text } from "@mantine/core";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
-  if (status === "loading") {
-    return (
-      <Flex align={"center"} justify={"center"}>
-        Please wait...
-      </Flex>
-    );
+ 
+  // if (status === "loading") {
+  //   return (
+  //     <Flex align={"center"} justify={"center"} style={{ height: '100vh' }}>
+  //       Please wait...
+  //     </Flex>
+  //   );
+  // }
+
+  if (status !== "loading" && session) {
+    router.replace("/dashboard");
   }
 
-  if (!session?.user) {
-    redirect("/auth/signin");
-  }
+  // useEffect(() => {
+  //   if (status !== "loading" && session) {
+  //     redirect("/dashboard");
+  //   } 
+  //    if (status === "unauthenticated") {
+  //     redirect("/auth/signin");
+  //   }
+  // }, [session, status]);
 
-  if (session?.user) {
-    console.log(status, "ahah");
-    redirect("/dashboard");
-  }
 
   return (
-    <>
-      {status === "authenticated"
-        ? "I am loggded in as  " + session.user?.name
-        : "Hello World!"}
-    </>
+    <Center style={{ height: "100vh" }}>
+      <Text c={"dark"}>Welcome Back</Text>
+    </Center>
   );
 }

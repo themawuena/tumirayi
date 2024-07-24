@@ -75,6 +75,7 @@ function Page() {
       totalSales: 230,
     },
   ];
+
   return (
     <Flex direction={"column"} gap={20}>
       <MainHeader title="Dashboard" section="Home" />
@@ -104,7 +105,7 @@ function Page() {
               <Button m={0} h={25} variant="outline">
                 YEARLY
               </Button>
-              </Group>
+            </Group>
           </Card>
           <LineCart />
         </Box>

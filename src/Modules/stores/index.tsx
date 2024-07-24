@@ -1,9 +1,63 @@
 "use client";
+import useGetAllStoreQuery from "@/API/data/dashboard/stores/use-get-my-stores.query";
 import { StoresCard } from "@/Components/Cards/StoresCard";
 import MainHeader from "@/Components/Header/MainHeader2";
-import { Flex, Pagination, SimpleGrid } from "@mantine/core";
+import { Flex, Loader, Pagination, SimpleGrid } from "@mantine/core";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 const Stores = () => {
+  const { data } = useSession();
+
+  const {
+    data: stores,
+    isSuccess,
+    isLoading,
+    // @ts-ignore
+  } = useGetAllStoreQuery({ id: data?.userId, enable: true });
+
+  // STATES
+  const [STORES, setSTORES] = useState<
+    {
+      address: string;
+      description: string;
+      id: number;
+      image: string;
+      name: string;
+      type: string;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    let restructuredData = stores?.stores?.reduce(
+      (
+        acc: {
+          address: string;
+          description: string;
+          id: number;
+          image: string;
+          name: string;
+          type: string;
+        }[],
+        item: any
+      ) => {
+        acc.push({
+          id: item?.id,
+          address: item?.address,
+          description: item?.description,
+          image: "https://tumi.mawuena.com/storage/" + item?.image,
+          name: item?.name,
+          type: item?.type,
+        });
+
+        return acc;
+      },
+      []
+    );
+
+    setSTORES(restructuredData);
+  }, [stores]);
+
   return (
     <Flex direction={"column"} gap={20} pt={40}>
       <MainHeader
@@ -12,15 +66,17 @@ const Stores = () => {
         buttonText="ADD NEW STORE"
         buttFunction={() => console.log("Mani")}
       />
+      {isLoading && (
+        <Flex className="h-screen" align={"center"} justify={"center"}>
+          <Loader color="blue" />
+        </Flex>
+      )}
       <SimpleGrid cols={3}>
-        <StoresCard />
-        <StoresCard />
-        <StoresCard />
-        <StoresCard />
-        <StoresCard />
-        <StoresCard />
+        {STORES?.map((store) => {
+          return <StoresCard key={store?.id} store={store} />;
+        })}
       </SimpleGrid>
-      <Pagination size={"sm"} total={10} />
+      {stores?.stores.length >= 10 && <Pagination size={"sm"} total={10} />}
     </Flex>
   );
 };

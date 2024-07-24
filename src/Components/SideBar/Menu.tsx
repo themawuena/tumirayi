@@ -62,14 +62,14 @@ const SideBar = ({ className = "", menuHeight, menuOverflow }: Props) => {
 
   const ProductLinks = [
     {
-      id: 9,
+      id: 93,
       name: "Add Store",
       route: "/dashboard/stores/add",
       icon: IconCirclePlus,
     },
     { id: 9, name: "My Stores", route: "/dashboard/stores", icon: IconBox },
     {
-      id: 9,
+      id: 130,
       name: "Add Category",
       route: "/dashboard/stores/category",
       icon: IconUserCircle,

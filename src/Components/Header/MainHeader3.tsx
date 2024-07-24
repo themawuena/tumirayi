@@ -1,6 +1,7 @@
-import { Avatar, Box, Button, Flex, Indicator, Text } from "@mantine/core";
-import { IconBell, IconCirclePlus } from "@tabler/icons-react";
+import { Flex, Indicator, Text } from "@mantine/core";
+import { IconBell } from "@tabler/icons-react";
 import React from "react";
+import { UserMenu } from "./Components/MyMenu";
 
 interface Props {
   title: string;
@@ -33,7 +34,7 @@ const MainHeader = ({
         <Indicator label={9} color="#EA5455" inline size={15}>
           <IconBell stroke={2} color="#4B465C" />
         </Indicator>
-        <Avatar radius="xl" color="indigo" />
+        <UserMenu />
       </Flex>
     </Flex>
   );

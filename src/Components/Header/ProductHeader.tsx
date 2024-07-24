@@ -1,12 +1,21 @@
-import { Avatar, Box, Button, Flex, Indicator, Text } from "@mantine/core";
+import { Button, Flex, Text } from "@mantine/core";
 import { IconCirclePlus } from "@tabler/icons-react";
+import { useRouter, usePathname } from "next/navigation";
 import React from "react";
 
 interface Props {
   title: string;
   section?: "Home" | "Product" | "Admin";
+  storeId?: string;
 }
-const MainHeader = ({ title, section = "Home" }: Props) => {
+const MainHeader = ({ title, section = "Home", storeId }: Props) => {
+  const router = useRouter();
+  const pathName = usePathname();
+
+  const handleAddProduct = () => {
+    router.push(`/dashboard/stores/product/new/${storeId}`);
+  };
+
   return (
     <Flex
       mih={50}
@@ -27,6 +36,7 @@ const MainHeader = ({ title, section = "Home" }: Props) => {
           className={`gap-5`}
           size="md"
           bg={"#232321"}
+          onClick={() => handleAddProduct()}
         >
           <Text size="15">Add a New Product</Text>
         </Button>

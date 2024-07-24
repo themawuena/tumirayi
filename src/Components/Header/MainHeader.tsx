@@ -9,6 +9,7 @@ import {
 } from "@mantine/core";
 import React from "react";
 import { IconBell } from "@tabler/icons-react";
+import { UserMenu } from "./Components/MyMenu";
 interface Props {
   title: string;
   section?: "Home" | "Product" | "Admin" | "Stores";

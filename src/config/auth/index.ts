@@ -1,62 +1,65 @@
-import NextAuth, { User } from "next-auth";
+import NextAuth, { AuthError, CredentialsSignin, User } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import user from "@/API/repositories/user";
+import { API_ENDPOINT } from "@/API/api/endpoints";
+import axios from "axios";
 
+export class InvalidLoginError extends CredentialsSignin {
+  code = "invalid_credentials";
+}
+
+// Auth configuration
 export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/auth/signin",
-    newUser: "/dashboard",
     error: "/auth/signin",
+    newUser: "/dashboard",
+    signOut: "/auth/signin",
   },
   providers: [
     Credentials({
       credentials: {
-        email: {},
-        password: {},
+        email: { type: "string" },
+        password: { type: "string" },
       },
       async authorize(credentials, req): Promise<User | null> {
-        const users = [
-          {
-            id: "test-user-1",
-            userName: "test1",
-            name: "Test 1",
-            password: "pass",
-            email: "test1@donotreply.com",
-          },
-          {
-            id: "test-user-2",
-            userName: "test2",
-            name: "Test 2",
-            password: "pass",
-            email: "test2@donotreply.com",
-          },
-        ];
+        try {
+          const response = await user.login({
+            email: credentials?.email,
+            password: credentials?.password,
+          });
+          return response?.data;
+        } catch (err: any) {
+          const errorResponse = err.response.data;
+          const errMsg =
+            errorResponse?.error ??
+            errorResponse?.message ??
+            "Unknown error occurred";
 
-        const user = users.find(
-          (user) =>
-            user.email === credentials?.email &&
-            user.password === credentials?.password
-        );
-
-        console.log(user, "user find", credentials);
-        return user
-          ? { id: user.id, name: user.name, email: user.email }
-          : null;
+          throw new InvalidLoginError(errMsg);
+        }
       },
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user, account }) {
+      if (user instanceof AuthError) {
+        throw new Error("custom error to the client");
+      }
+
       return true;
     },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
+        token.id = user.id; // store the internal ID in token.id
+        token.userId = user.merchant_id; // store the merchant ID in token.userId
       }
       return token;
     },
     async session({ session, token }) {
-      // @ts-ignore
-      session.user.id = token.id;
+      session.id = token.id;
+      session.userId = token.userId; // assign the stored merchant ID to session.userId
+      session.user = token.user; // pass the user object to the session
       return session;
     },
   },

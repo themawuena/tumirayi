@@ -13,12 +13,12 @@ import {
 import { IconArrowUp, IconDots, IconEdit, IconEye } from "@tabler/icons-react";
 import { usePathname, useRouter } from "next/navigation";
 
-function MenuButton() {
+function MenuButton({ product, store }: { product: any; store: any }) {
   const router = useRouter();
   const pathName = usePathname();
 
-  const HandleNavigation = (id: any) => {
-    router.push(`${pathName}/view/${id}`);
+  const HandleNavigation = (store: any) => {
+    router.push(`/dashboard/stores/product/view/${store}/${product.id}`);
   };
 
   return (
@@ -40,13 +40,13 @@ function MenuButton() {
 
       <Menu.Dropdown>
         <Menu.Item
-          onClick={() => HandleNavigation(3)}
+          onClick={() => HandleNavigation(store)}
           leftSection={<IconEye size={14} />}
         >
           View
         </Menu.Item>
         <Menu.Item
-          onClick={() => HandleNavigation(3)}
+          onClick={() => HandleNavigation(store)}
           leftSection={<IconEdit size={14} />}
         >
           Edit
@@ -56,7 +56,22 @@ function MenuButton() {
   );
 }
 
-export function ProductCard() {
+interface Props {
+  product: {
+    id: number | string;
+    product_name: string;
+    description: string;
+    SKU: string;
+    regular_price: string;
+    sale_price: string;
+    quantity: string;
+    brand_name: string;
+    category: string;
+  };
+  store: string;
+}
+
+export function ProductCard({ product, store }: Props) {
   return (
     <Card shadow="sm" p="xs" radius="md" withBorder>
       <Flex direction={"row"} gap={5}>
@@ -72,26 +87,26 @@ export function ProductCard() {
           <Flex direction={"column"} gap={10} justify={"space-between"}>
             <Box>
               <Text fw={"500"} fs={"16px"}>
-                Lorem Ipsum
+                {product?.product_name}
               </Text>
               <Text fw={"600"} fs={"14px"} c={"#4E4E4C"}>
-                Battery
+                {product.category}
               </Text>
             </Box>
-            <Text fw={"800"}>R10</Text>
+            <Text fw={"800"}>R{product.regular_price}</Text>
           </Flex>
-          <MenuButton />
+          <MenuButton product={product} store={store} />
         </Flex>
       </Flex>
 
-      <Group mt="md" mb="xs" gap={0}>
+      <Flex direction={"column"} mt="md" mb="xs" gap={0}>
         <Text fw={600} c="#232321">
           Summary
         </Text>
         <Text size="sm" fw={"400"} c="#5E5E5C">
-          Lorem ipsum is placeholder text commonly used in the graphic.
+          {product?.description}
         </Text>
-      </Group>
+      </Flex>
 
       <Card shadow="0" withBorder mt="sm" mb="xs" p={10}>
         <Flex justify={"space-between"}>
