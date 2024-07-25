@@ -76,7 +76,7 @@ const Stores = () => {
           return <StoresCard key={store?.id} store={store} />;
         })}
       </SimpleGrid>
-      {stores?.stores.length >= 10 && <Pagination size={"sm"} total={10} />}
+      {stores?.stores?.length >= 10 && <Pagination size={"sm"} total={10} />}
     </Flex>
   );
 };

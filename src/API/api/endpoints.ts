@@ -28,3 +28,4 @@ export const API_ENDPOINT = {
 };
 // GET API https://tumi.mawuena.com/api/stores/{store_id/products/{product_id}
 // GET https://tumi.mawuena.com/api/merchants/{merchant_id}/stores
+// /merchants/{merchant_id}/stores/{store_id}

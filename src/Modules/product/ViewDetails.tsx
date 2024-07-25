@@ -198,9 +198,10 @@ const ViewDetails = ({ items, params }: Props) => {
     }
   }, [PROD_IMAGES, product]);
 
-
   const mutation = useMutation({
     mutationFn: async (values: any) => {
+      console.log(values, "mutation");
+
       const formData = new FormData();
       formData.append("category_id", values.category);
       formData.append("product_name", values.product_name);
@@ -213,7 +214,10 @@ const ViewDetails = ({ items, params }: Props) => {
       selectedFiles.forEach((file) => {
         formData.append("images[]", file);
       });
-      console.log("selectedFiles");
+
+      // for (let pair of formData.entries()) {
+      //   console.log(pair[0] + ": " + pair[1]);
+      // }
 
       const response = await axios.put(
         // @ts-ignore
@@ -227,16 +231,6 @@ const ViewDetails = ({ items, params }: Props) => {
       );
       return response.data;
     },
-
-    onError: (error) => {
-      console.log(error, "error");
-
-      notifications.show({
-        title: "Updating a product failed",
-        message: error.message || "Adding a product failed",
-        color: "red",
-      });
-    },
     onSuccess: (data) => {
       notifications.show({
         title: "Updated successfully",
@@ -245,16 +239,21 @@ const ViewDetails = ({ items, params }: Props) => {
       });
       router.back();
     },
+    onError: (error) => {
+      console.log(error, "error");
+      notifications.show({
+        title: "Updating a product failed",
+        message: error.message || "Adding a product failed",
+        color: "red",
+      });
+    },
   });
 
   const handleSubmitForm2 = (values: any) => {
+    // console.log(values, 'values');
+
     mutation.mutate(values);
   };
-
-  console.log(form.getValues());
-  
-  console.log(CATEGORIES, PROD?.category_id);
-  
 
   return (
     <form onSubmit={form.onSubmit(handleSubmitForm2)}>
@@ -377,7 +376,12 @@ const ViewDetails = ({ items, params }: Props) => {
               }}
               bg={"#00000033"}
             >
-              <Image w={"100%"} h={"100%"} src={filePreviews?.[0]?.url} alt="logo" />
+              <Image
+                w={"100%"}
+                h={"100%"}
+                src={filePreviews?.[0]?.url}
+                alt="logo"
+              />
             </Box>
             <Flex direction={"column"}>
               <Text style={LabelStyle}>Store Logo</Text>

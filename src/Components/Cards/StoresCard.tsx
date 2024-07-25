@@ -29,8 +29,13 @@ export function StoresCard({ store }: Props) {
   const pathName = usePathname();
 
   const handleViewProducts = () => {
+    router.push(`${pathName}/products/${store.id}`);
+  };
+
+  const handleViewStore = () => {
     router.push(`${pathName}/view/${store.id}`);
   };
+
   return (
     <Card bg={"#FAFAFA"} shadow="0" p="xs" radius="md">
       <Flex direction={"row"} gap={5}>
@@ -77,6 +82,7 @@ export function StoresCard({ store }: Props) {
           size="14px"
           fw={600}
           c={"#646464"}
+          onClick={() => handleViewStore()}
         >
           Edit Store
         </Text>
