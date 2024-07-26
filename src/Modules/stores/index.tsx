@@ -4,10 +4,13 @@ import { StoresCard } from "@/Components/Cards/StoresCard";
 import MainHeader from "@/Components/Header/MainHeader2";
 import { Flex, Loader, Pagination, SimpleGrid } from "@mantine/core";
 import { useSession } from "next-auth/react";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Stores = () => {
   const { data } = useSession();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const {
     data: stores,
@@ -58,13 +61,17 @@ const Stores = () => {
     setSTORES(restructuredData);
   }, [stores]);
 
+  const handleHavaigation = () => {
+    router.push(`${pathname}/add`);
+  };
+
   return (
     <Flex direction={"column"} gap={20} pt={40}>
       <MainHeader
         title="My Stores"
         showButton={true}
         buttonText="ADD NEW STORE"
-        buttFunction={() => console.log("Mani")}
+        buttFunction={() => handleHavaigation()}
       />
       {isLoading && (
         <Flex className="h-screen" align={"center"} justify={"center"}>

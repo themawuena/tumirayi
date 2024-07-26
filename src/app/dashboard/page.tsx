@@ -2,7 +2,7 @@
 import BestSellerCard from "@/Components/Cards/BestCard";
 import DashCard from "@/Components/Cards/DashCard";
 import LineCart from "@/Components/Chart/Line";
-import MainHeader from "@/Components/Header/DashHeader";
+import MainHeader from "@/Components/Header/MainHeader3";
 import CustomTable from "@/Components/Tables/RecentTable";
 import { Box, Button, Card, Flex, Group, Text } from "@mantine/core";
 import { IconDotsVertical } from "@tabler/icons-react";
