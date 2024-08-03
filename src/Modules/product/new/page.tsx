@@ -30,7 +30,7 @@ export interface FilePreview {
   url: string;
 }
 
-const AddProducts = () => {
+const AddProducts = ({ params }: { params: { id: string } }) => {
   let LabelStyle = {
     color: "#232321",
     fontWeight: "700",
@@ -41,19 +41,18 @@ const AddProducts = () => {
     borderColor: "#232321",
   };
 
-  
   // * HOOKS
   const router = useRouter();
   const { data } = useSession();
- 
-//  API
+
+  //  API
   const {
     data: categories,
     isSuccess,
     isLoading,
     // @ts-ignore
-  } = useGetAllCategoriesQuery({ id: data?.userId, enable: true });
-  
+  } = useGetAllCategoriesQuery({ id: params?.id, enable: true });
+
   // * STATES
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [filePreviews, setFilePreviews] = useState<FilePreview[]>([]);
@@ -130,7 +129,7 @@ const AddProducts = () => {
   const mutation = useMutation({
     mutationFn: async (values: any) => {
       const formData = new FormData();
-      formData.append("category_id", "3");
+      formData.append("category_id", values?.category);
       formData.append("product_name", values.product_name);
       formData.append("description", values.description);
       formData.append("SKU", values.SKU);
@@ -145,7 +144,7 @@ const AddProducts = () => {
 
       const response = await axios.post(
         // @ts-ignore
-        `${API_ENDPOINT.ADDPRODUCT}/${data?.userId}/products`,
+        `${API_ENDPOINT.ADDPRODUCT}/${params?.id}/products`,
         formData,
         {
           headers: {
@@ -180,214 +179,224 @@ const AddProducts = () => {
     mutation.mutate(values);
   };
 
-
   return (
     <form onSubmit={form.onSubmit(handleSubmitForm2)}>
-        <Grid gutter={50} bg={"#ffffff"} px={20} style={{ borderRadius: 10 }}>
-          <Grid.Col span={7}>
-            <Flex gap={20} direction={"column"}>
+      <Grid gutter={50} bg={"#ffffff"} px={20} style={{ borderRadius: 10 }}>
+        <Grid.Col span={7}>
+          <Flex gap={20} direction={"column"}>
+            <TextInput
+              label="Product Name"
+              placeholder="Jordan 2"
+              styles={{
+                label: LabelStyle,
+                input: InputStyle,
+              }}
+              withAsterisk
+              key={form.key("product_name")}
+              {...form.getInputProps("product_name")}
+            />
+            <Textarea
+              label="Store Description"
+              placeholder="We give you a  the best"
+              styles={{
+                label: LabelStyle,
+                input: {
+                  height: 150,
+                  ...InputStyle,
+                },
+              }}
+              withAsterisk
+              key={form.key("description")}
+              {...form.getInputProps("description")}
+            />
+            <Select
+              label="Category"
+              placeholder={
+                CATEGORIES.length === 0
+                  ? "No Categories found for this store"
+                  : "Sneakers"
+              }
+              styles={{
+                label: LabelStyle,
+                input: InputStyle,
+                dropdown: {
+                  color: "#000000",
+                },
+              }}
+              searchable
+              data={CATEGORIES}
+              withAsterisk
+              key={form.key("category")}
+              {...form.getInputProps("category")}
+            />
+            <TextInput
+              label="Brand Name"
+              placeholder="Nike"
+              styles={{
+                label: LabelStyle,
+                input: InputStyle,
+              }}
+              withAsterisk
+              key={form.key("brand_name")}
+              {...form.getInputProps("brand_name")}
+            />
+            <Flex justify={"space-between"}>
               <TextInput
-                label="Product Name"
-                placeholder="Jordan 2"
+                w={"45%"}
+                label="SKU"
+                placeholder="#29S490"
                 styles={{
                   label: LabelStyle,
                   input: InputStyle,
                 }}
                 withAsterisk
-                key={form.key("product_name")}
-                {...form.getInputProps("product_name")}
-              />
-              <Textarea
-                label="Store Description"
-                placeholder="We give you a  the best"
-                styles={{
-                  label: LabelStyle,
-                  input: {
-                    height: 150,
-                    ...InputStyle,
-                  },
-                }}
-                withAsterisk
-                key={form.key("description")}
-                {...form.getInputProps("description")}
-              />
-              <Select
-                label="Category"
-                placeholder="Sneakers"
-                styles={{
-                  label: LabelStyle,
-                  input: InputStyle,
-                  dropdown: {
-                    color: "#000000",
-                  },
-                }}
-                data={CATEGORIES}
-                withAsterisk
-                key={form.key("category")}
-                {...form.getInputProps("category")}
+                key={form.key("SKU")}
+                {...form.getInputProps("SKU")}
               />
               <TextInput
-                label="Brand Name"
-                placeholder="Nike"
+                w={"45%"}
+                label="Stock Quantity"
+                placeholder="100"
                 styles={{
                   label: LabelStyle,
                   input: InputStyle,
                 }}
                 withAsterisk
-                key={form.key("brand_name")}
-                {...form.getInputProps("brand_name")}
+                key={form.key("quantity")}
+                {...form.getInputProps("quantity")}
               />
-              <Flex justify={"space-between"}>
-                <TextInput
-                  w={"45%"}
-                  label="SKU"
-                  placeholder="#29S490"
-                  styles={{
-                    label: LabelStyle,
-                    input: InputStyle,
-                  }}
-                  withAsterisk
-                  key={form.key("SKU")}
-                  {...form.getInputProps("SKU")}
-                />
-                <TextInput
-                  w={"45%"}
-                  label="Stock Quantity"
-                  placeholder="100"
-                  styles={{
-                    label: LabelStyle,
-                    input: InputStyle,
-                  }}
-                  withAsterisk
-                  key={form.key("quantity")}
-                  {...form.getInputProps("quantity")}
-                />
-              </Flex>
-              <Flex justify={"space-between"}>
-                <TextInput
-                  w={"45%"}
-                  label="Regular Price"
-                  placeholder="R80"
-                  styles={{
-                    label: LabelStyle,
-                    input: InputStyle,
-                  }}
-                  withAsterisk
-                  key={form.key("regular_price")}
-                  {...form.getInputProps("regular_price")}
-                />
-                <TextInput
-                  w={"45%"}
-                  label="Sale Price"
-                  placeholder="R100"
-                  styles={{
-                    label: LabelStyle,
-                    input: InputStyle,
-                  }}
-                  withAsterisk
-                  key={form.key("sale_price")}
-                  {...form.getInputProps("sale_price")}
-                />
-              </Flex>
             </Flex>
-          </Grid.Col>
-          <Grid.Col span={5}>
-            <Flex gap={8} direction={"column"}>
-              <Box
-                h={365}
-                style={{
-                  borderRadius: 10,
-                  borderWidth: 7,
-                  borderColor: "#fafafa",
+            <Flex justify={"space-between"}>
+              <TextInput
+                w={"45%"}
+                label="Regular Price"
+                placeholder="R80"
+                styles={{
+                  label: LabelStyle,
+                  input: InputStyle,
                 }}
-                bg={"#00000033"}
-              ></Box>
-              <Flex direction={"column"}>
-                <Text style={LabelStyle}>Store Logo</Text>
-                <Group
-                  style={{
-                    borderWidth: 2,
-                    borderStyle: "dashed",
-                    borderSpacing: "10px",
-                    borderColor: "#000000",
-                    borderRadius: 10,
-                  }}
-                  justify="center"
-                  align="center"
-                  h={160}
-                  gap={0}
-                >
-                  <CustomFileInput onFileSelect={handleFileSelect} />
-                </Group>
-              </Flex>
-              {/* Images */}
-              <Flex direction={"column"} gap={20}>
-                {filePreviews?.map((image, index) => (
-                  <Flex
-                    key={index}
-                    gap={10}
-                    bg={"#FAFAFA"}
-                    p={10}
-                    justify={"space-between"}
-                    align={"center"}
-                  >
-                    <Flex gap={10}>
-                      <Box
-                        style={{ borderRadius: 8 }}
-                        w={50}
-                        h={50}
-                        bg={"#00000033"}
-                      >
-                        {image?.url && (
-                          <Image
-                            w={"100%"}
-                            h={"100%"}
-                            src={image.url}
-                            alt={`Preview ${index}`}
-                          />
-                        )}
-                      </Box>
-                      <Flex
-                        gap={10}
-                        justify={"flex-start"}
-                        align={"flex-start"}
-                        direction={"column"}
-                      >
-                        <Text c={"dark"} ta={"center"}>
-                          {image?.name}
-                        </Text>
-                        <Progress
-                          bg={"#4A69E2"}
-                          w={300}
-                          value={100}
-                          color="#003F62"
-                        />
-                      </Flex>
-                    </Flex>
-                    <Flex
-                      align={"center"}
-                      justify={"center"}
-                      style={{ borderRadius: 20 }}
-                      w={20}
-                      h={20}
-                      bg={"#003F62"}
-                    >
-                      <IconCheck stroke={3} size={15} color="white" />
-                    </Flex>
-                  </Flex>
-                ))}
-              </Flex>
-              {/* Buttons */}
-              <Group justify="center" mt={10}>
-                <Button loading={mutation.isPending} type="submit" radius={6} size={"md"} bg={"#232321"}>
-                  <Text size="14px" fw={500}>
-                    CREATE PRODUCT
-                  </Text>
-                </Button>
+                withAsterisk
+                key={form.key("regular_price")}
+                {...form.getInputProps("regular_price")}
+              />
+              <TextInput
+                w={"45%"}
+                label="Sale Price"
+                placeholder="R100"
+                styles={{
+                  label: LabelStyle,
+                  input: InputStyle,
+                }}
+                withAsterisk
+                key={form.key("sale_price")}
+                {...form.getInputProps("sale_price")}
+              />
+            </Flex>
+          </Flex>
+        </Grid.Col>
+        <Grid.Col span={5}>
+          <Flex gap={8} direction={"column"}>
+            <Box
+              h={365}
+              style={{
+                borderRadius: 10,
+                borderWidth: 7,
+                borderColor: "#fafafa",
+              }}
+              bg={"#00000033"}
+            ></Box>
+            <Flex direction={"column"}>
+              <Text style={LabelStyle}>Store Logo</Text>
+              <Group
+                style={{
+                  borderWidth: 2,
+                  borderStyle: "dashed",
+                  borderSpacing: "10px",
+                  borderColor: "#000000",
+                  borderRadius: 10,
+                }}
+                justify="center"
+                align="center"
+                h={160}
+                gap={0}
+              >
+                <CustomFileInput onFileSelect={handleFileSelect} />
               </Group>
             </Flex>
-          </Grid.Col>
-        </Grid>
+            {/* Images */}
+            <Flex direction={"column"} gap={20}>
+              {filePreviews?.map((image, index) => (
+                <Flex
+                  key={index}
+                  gap={10}
+                  bg={"#FAFAFA"}
+                  p={10}
+                  justify={"space-between"}
+                  align={"center"}
+                >
+                  <Flex gap={10}>
+                    <Box
+                      style={{ borderRadius: 8 }}
+                      w={50}
+                      h={50}
+                      bg={"#00000033"}
+                    >
+                      {image?.url && (
+                        <Image
+                          w={"100%"}
+                          h={"100%"}
+                          src={image.url}
+                          alt={`Preview ${index}`}
+                        />
+                      )}
+                    </Box>
+                    <Flex
+                      gap={10}
+                      justify={"flex-start"}
+                      align={"flex-start"}
+                      direction={"column"}
+                    >
+                      <Text c={"dark"} ta={"center"}>
+                        {image?.name}
+                      </Text>
+                      <Progress
+                        bg={"#4A69E2"}
+                        w={300}
+                        value={100}
+                        color="#003F62"
+                      />
+                    </Flex>
+                  </Flex>
+                  <Flex
+                    align={"center"}
+                    justify={"center"}
+                    style={{ borderRadius: 20 }}
+                    w={20}
+                    h={20}
+                    bg={"#003F62"}
+                  >
+                    <IconCheck stroke={3} size={15} color="white" />
+                  </Flex>
+                </Flex>
+              ))}
+            </Flex>
+            {/* Buttons */}
+            <Group justify="center" mt={10}>
+              <Button
+                loading={mutation.isPending}
+                type="submit"
+                radius={6}
+                size={"md"}
+                bg={"#232321"}
+              >
+                <Text size="14px" fw={500}>
+                  CREATE PRODUCT
+                </Text>
+              </Button>
+            </Group>
+          </Flex>
+        </Grid.Col>
+      </Grid>
     </form>
   );
 };

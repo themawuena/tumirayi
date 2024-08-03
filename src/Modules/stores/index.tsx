@@ -2,6 +2,7 @@
 import useGetAllStoreQuery from "@/API/data/dashboard/stores/use-get-my-stores.query";
 import { StoresCard } from "@/Components/Cards/StoresCard";
 import MainHeader from "@/Components/Header/MainHeader2";
+import { EmptyState } from "@/Components/StatMangement";
 import { Flex, Loader, Pagination, SimpleGrid } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
@@ -78,12 +79,18 @@ const Stores = () => {
           <Loader color="blue" />
         </Flex>
       )}
-      <SimpleGrid cols={3}>
-        {STORES?.map((store) => {
-          return <StoresCard key={store?.id} store={store} />;
-        })}
-      </SimpleGrid>
-      {stores?.stores?.length >= 10 && <Pagination size={"sm"} total={10} />}
+      <Flex>
+        {STORES?.length == 0 ||
+          (STORES == undefined && <EmptyState message="No stores Found" />)}
+      </Flex>
+      {STORES?.length !== 0 && STORES !== undefined && (
+        <SimpleGrid cols={3}>
+          {STORES?.map((store) => {
+            return <StoresCard key={store?.id} store={store} />;
+          })}
+        </SimpleGrid>
+      )}
+      {STORES?.length >= 10 && <Pagination size={"sm"} total={10} />}
     </Flex>
   );
 };

@@ -67,19 +67,26 @@ interface Props {
     quantity: string;
     brand_name: string;
     category: string;
+    image: string;
   };
   store: string;
 }
 
 export function ProductCard({ product, store }: Props) {
+  console.log(product.image);
+
   return (
     <Card shadow="sm" p="xs" radius="md" withBorder>
       <Flex direction={"row"} gap={5}>
-        <Box w={"30%"}>
+        <Box w={"30%"} h={110}>
           <Image
-            src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
-            height={100}
-            width={100}
+            radius={10}
+            src={product.image}
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
+            fit="fill"
             alt="Norway"
           />
         </Box>
@@ -116,7 +123,7 @@ export function ProductCard({ product, store }: Props) {
           <Group>
             <IconArrowUp stroke={2} color="#FFA52F" size={18} />
             <Text fs="14" fw={500} c={"#4E4E4C"}>
-              1238
+              {0}
             </Text>
           </Group>
         </Flex>
@@ -126,9 +133,14 @@ export function ProductCard({ product, store }: Props) {
             Remaining Products
           </Text>
           <Group>
-            <Progress w={50} value={20} size={"5"} color="yellow" />
+            <Progress
+              w={50}
+              value={parseInt(product?.quantity)}
+              size={"5"}
+              color="yellow"
+            />
             <Text fs="14" fw={500} c={"#4E4E4C"}>
-              1269
+              {parseInt(product?.quantity)}
             </Text>
           </Group>
         </Flex>

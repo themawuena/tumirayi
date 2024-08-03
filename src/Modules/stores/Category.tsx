@@ -71,7 +71,7 @@ const AddACategory = () => {
     mode: "uncontrolled",
     initialValues: {
       cat_name: "",
-      store_id: ""
+      store_id: "",
     },
 
     validate: {
@@ -88,7 +88,7 @@ const AddACategory = () => {
       formData.append("cat_name", values.cat_name);
       const response = await axios.post(
         // @ts-ignore
-        `${API_ENDPOINT.PRODUCTS}/${data?.userId}/categories`,
+        `${API_ENDPOINT.PRODUCTS}/${values?.store_id}/categories`,
         formData,
         {
           headers: {
@@ -101,18 +101,18 @@ const AddACategory = () => {
     },
     onError: (error) => {
       notifications.show({
-        title: "Category created successfully",
-        message: error.message || "Category failed",
+        title: "Category",
+        message: error.message || "Creating category failed",
         color: "green",
       });
     },
     onSuccess: (data) => {
       notifications.show({
-        title: "Category created successfully",
-        message: data?.message || "Category failed",
+        title: "Category",
+        message: data?.message || "Category created successfully",
         color: "green",
       });
-      // router.push("/dashboard/stores");
+      form.reset();
     },
   });
 
@@ -154,28 +154,22 @@ const AddACategory = () => {
                 color: "#000000",
               },
             }}
-            // value={form.getValues('cat_name', value)}
-            // onChange={(_value, option) => setValue(option.value)}
             data={STORES}
             key={form.key("store_id")}
             {...form.getInputProps("store_id")}
           />
           <Group w={"50%"} justify="start" mt={0}>
-            <Button type="submit" radius={6} size={"md"} bg={"#232321"}>
+            <Button
+              loading={mutation.isPending}
+              type="submit"
+              radius={6}
+              size={"md"}
+              bg={"#232321"}
+            >
               <Text size="14px" fw={500}>
                 CREATE
               </Text>
             </Button>
-            {/* <Button radius={6} size={"md"} bg={"#003F62"}>
-            <Text size="14px" fw={500}>
-              DELETE
-            </Text>
-          </Button>
-          <Button radius={6} size={"md"} variant="default">
-            <Text size="14px" fw={500}>
-              CANCEL
-            </Text>
-          </Button> */}
           </Group>
         </Flex>
       </Flex>

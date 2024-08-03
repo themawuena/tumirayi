@@ -140,7 +140,7 @@ const ViewAStore = ({ params }: Props) => {
         formData.append("image", selectedFile);
       }
 
-      const response = await axios.post(
+      const response = await axios.put(
         // @ts-ignore
         `${API_ENDPOINT.CREATE_STORE}/${data?.userId}/stores`,
         formData,
