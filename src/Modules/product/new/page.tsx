@@ -319,7 +319,7 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
               bg={"#00000033"}
             ></Box>
             <Flex direction={"column"}>
-              <Text style={LabelStyle}>Store Logo</Text>
+              <Text style={LabelStyle}>Product Logo</Text>
               <Group
                 style={{
                   borderWidth: 2,
