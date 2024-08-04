@@ -8,6 +8,7 @@ import {
   Grid,
   Group,
   Image,
+  Modal,
   Progress,
   Select,
   Text,
@@ -24,6 +25,8 @@ import React, { useEffect, useState } from "react";
 import CustomFileInput from "../Components/CustomFileInput";
 import { useSession } from "next-auth/react";
 import useGetAllCategoriesQuery from "@/API/data/dashboard/stores/use-get-my-category.query";
+import { useDisclosure } from "@mantine/hooks";
+import AddACategory from "@/Modules/stores/Category";
 
 export interface FilePreview {
   name: string;
@@ -56,6 +59,7 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
   // * STATES
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [filePreviews, setFilePreviews] = useState<FilePreview[]>([]);
+  const [opened, { open, close }] = useDisclosure(false);
 
   const handleFileSelect = (files: File[]) => {
     setSelectedFiles(files);
@@ -209,26 +213,35 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
               key={form.key("description")}
               {...form.getInputProps("description")}
             />
-            <Select
-              label="Category"
-              placeholder={
-                CATEGORIES.length === 0
-                  ? "No Categories found for this store"
-                  : "Sneakers"
-              }
-              styles={{
-                label: LabelStyle,
-                input: InputStyle,
-                dropdown: {
-                  color: "#000000",
-                },
-              }}
-              searchable
-              data={CATEGORIES}
-              withAsterisk
-              key={form.key("category")}
-              {...form.getInputProps("category")}
-            />
+            <Flex align={"center"} gap={10}>
+              <Select
+                w={"100%"}
+                label="Category"
+                placeholder={
+                  CATEGORIES?.length === 0
+                    ? "No Categories found for this store"
+                    : "Sneakers"
+                }
+                styles={{
+                  label: LabelStyle,
+                  input: InputStyle,
+                  dropdown: {
+                    color: "#000000",
+                  },
+                }}
+                searchable
+                data={CATEGORIES}
+                withAsterisk
+                key={form.key("category")}
+                {...form.getInputProps("category")}
+              />
+              <Flex w={"15%"} align={"flex-end"} direction={"column"}>
+                <Box mt="30" px="0" />
+                <Button bg={"#232321"} onClick={open}>
+                  Add New
+                </Button>
+              </Flex>
+            </Flex>
             <TextInput
               label="Brand Name"
               placeholder="Nike"
@@ -397,6 +410,14 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
           </Flex>
         </Grid.Col>
       </Grid>
+      <Modal
+        size="auto"
+        opened={opened}
+        onClose={close}
+        title="Create Category"
+      >
+        <AddACategory type="modal" />
+      </Modal>
     </form>
   );
 };

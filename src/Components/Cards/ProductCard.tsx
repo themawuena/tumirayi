@@ -73,8 +73,6 @@ interface Props {
 }
 
 export function ProductCard({ product, store }: Props) {
-  console.log(product.image);
-
   return (
     <Card shadow="sm" p="xs" radius="md" withBorder>
       <Flex direction={"row"} gap={5}>

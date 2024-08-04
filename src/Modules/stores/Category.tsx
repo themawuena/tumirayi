@@ -18,7 +18,11 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-const AddACategory = () => {
+interface Props {
+  type: "modal" | "page";
+}
+
+const AddACategory = ({ type }: Props) => {
   let LabelStyle = {
     color: "#232321",
     fontWeight: "700",
@@ -124,15 +128,15 @@ const AddACategory = () => {
     <form onSubmit={form.onSubmit(handleSubmitForm2)}>
       <Flex
         bg={"#ffffff"}
-        className="h-screen"
+        className={`${type === "modal" ? "h-fit" : "h-screen"}`}
         style={{ borderRadius: 10 }}
         direction={"column"}
         px={20}
-        pt={100}
+        pt={type === "modal" ? 10 : 100}
       >
         <Flex gap={20} direction={"column"}>
           <TextInput
-            w={"50%"}
+            w={type === "modal" ? "100%" : "50%"}
             label="Category Name"
             placeholder="Input placeholder"
             styles={{
@@ -144,7 +148,7 @@ const AddACategory = () => {
             {...form.getInputProps("cat_name")}
           />
           <Select
-            w={"50%"}
+            w={type === "modal" ? "100%" : "50%"}
             label="Select Store"
             placeholder="Pick value"
             styles={{
