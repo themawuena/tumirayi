@@ -2,8 +2,20 @@ import { SetStateAction, useState } from "react";
 import MainHeader from "@/Components/Header/MainHeader3";
 import OrderTabs from "@/Components/Tabs/Orders";
 import { Box, Flex } from "@mantine/core";
+import { useSession } from "next-auth/react";
+import useGetAllOrdersQuery from "@/API/data/dashboard/orders/use-get-my-orders.query";
 
 const OrderManagement = () => {
+  const { data } = useSession();
+
+  const { data: my_orders } = useGetAllOrdersQuery({
+    // @ts-ignore
+    id: data?.userId,
+    enable: true,
+  });
+
+  console.log(my_orders);
+
   const [activeTab, setActiveTab] = useState("Pending");
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);

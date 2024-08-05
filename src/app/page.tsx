@@ -15,6 +15,8 @@ export default function Home() {
   //     </Flex>
   //   );
   // }
+  // console.log(status);
+  
 
   if (status !== "loading" && session) {
     router.replace("/dashboard");

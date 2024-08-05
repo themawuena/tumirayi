@@ -25,7 +25,9 @@ export const API_ENDPOINT = {
   // PRODUCTS
   PRODUCTS: BASE_ENDPOINT + "/stores",
   ADDPRODUCT: BASE_ENDPOINT + "/stores",
+  // ORDERS
 };
 // GET API https://tumi.mawuena.com/api/stores/{store_id/products/{product_id}
 // GET https://tumi.mawuena.com/api/merchants/{merchant_id}/stores
 // /merchants/{merchant_id}/stores/{store_id}
+// https://tumi.mawuena.com/api/merchants/{merchant_id}/orders

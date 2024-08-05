@@ -1,5 +1,4 @@
 import { Badge, Pagination, Table, Text } from "@mantine/core";
-import { OrdersData } from "./_Data";
 import { IconCircleCaretDown } from "@tabler/icons-react";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -19,11 +18,22 @@ export const COLORS: {
   picked: { name: "Picked", color: "#0F60FF", bg: "#0F60FF29" },
 };
 
-function CustomTable() {
+interface Props {
+  data: {
+    order_id: string;
+    createdAt: string;
+    customer: string;
+    total: string;
+    status: string;
+    profit: string;
+  }[];
+}
+
+function CustomTable({ data }: Props) {
   const router = useRouter();
   const pathName = usePathname();
 
-  const handleRowClick = (id: any, type: string) => {
+  const handleRowClick = (id: string, type: string) => {
     if (type === "view") {
       router.push(`${pathName}/view/${id}`);
     } else if (type === "edit") {
@@ -31,10 +41,11 @@ function CustomTable() {
     }
   };
 
-  const rows = OrdersData?.map((element) => (
+  const rows = data?.map((element) => (
     <Table.Tr
       key={element.order_id}
       onClick={() => handleRowClick(element.order_id, "view")}
+      style={{ cursor: "pointer" }}
     >
       <Table.Td>#{element.order_id}</Table.Td>
       <Table.Td>{element.createdAt}</Table.Td>
@@ -104,7 +115,20 @@ function CustomTable() {
             <Table.Th></Table.Th>
           </Table.Tr>
         </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
+        <Table.Tbody>
+          {rows.length > 0 ? (
+            rows
+          ) : (
+            <Table.Tr>
+              <Table.Td
+                colSpan={7}
+                style={{ textAlign: "center", padding: "20px" }}
+              >
+                No orders found
+              </Table.Td>
+            </Table.Tr>
+          )}
+        </Table.Tbody>
       </Table>
       <Pagination total={20} size={"sm"} />
     </>

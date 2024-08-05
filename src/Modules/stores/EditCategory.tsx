@@ -19,19 +19,19 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 interface Props {
-  type: "modal" | "page";
+  param: { id: string };
 }
 
-export let LabelStyle = {
-  color: "#232321",
-  fontWeight: "700",
-  padding: "0px 0px 7px 0px",
-};
+const EditCategory = ({ param }: Props) => {
+  let LabelStyle = {
+    color: "#232321",
+    fontWeight: "700",
+    padding: "0px 0px 7px 0px",
+  };
 
-export let InputStyle = {
-  borderColor: "#232321",
-};
-const AddACategory = ({ type }: Props) => {
+  let InputStyle = {
+    borderColor: "#232321",
+  };
 
   const { data } = useSession();
 
@@ -128,15 +128,15 @@ const AddACategory = ({ type }: Props) => {
     <form onSubmit={form.onSubmit(handleSubmitForm2)}>
       <Flex
         bg={"#ffffff"}
-        className={`${type === "modal" ? "h-fit" : "h-screen"}`}
+        className={`h-screen`}
         style={{ borderRadius: 10 }}
         direction={"column"}
         px={20}
-        pt={type === "modal" ? 10 : 100}
+        pt={100}
       >
         <Flex gap={20} direction={"column"}>
           <TextInput
-            w={type === "modal" ? "100%" : "50%"}
+            w={"50%"}
             label="Category Name"
             placeholder="Input placeholder"
             styles={{
@@ -148,7 +148,7 @@ const AddACategory = ({ type }: Props) => {
             {...form.getInputProps("cat_name")}
           />
           <Select
-            w={type === "modal" ? "100%" : "50%"}
+            w={"50%"}
             label="Select Store"
             placeholder="Pick value"
             styles={{
@@ -181,4 +181,4 @@ const AddACategory = ({ type }: Props) => {
   );
 };
 
-export default AddACategory;
+export default EditCategory;
