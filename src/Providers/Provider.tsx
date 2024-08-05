@@ -8,15 +8,16 @@ import { useEffect } from "react";
 import { persistStore } from "redux-persist";
 
 const Providers = ({ children }: { children: any }) => {
-
   const persistor = persistStore(store);
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <SessionProvider>{children}</SessionProvider>
-      </PersistGate>
-    </Provider>
+    <SessionProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          {children}
+        </PersistGate>
+      </Provider>
+    </SessionProvider>
   );
 };
 

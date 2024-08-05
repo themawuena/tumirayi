@@ -59,18 +59,6 @@ function CustomTable({ data }: Props) {
         <Table.Td>{element.createdAt}</Table.Td>
         <Table.Td>{element.customer}</Table.Td>
         <Table.Td>{element.total}</Table.Td>
-        {/* <Table.Td>
-          {element.profit}
-          <Badge
-            variant="light"
-            bg={"#28C76F29"}
-            color="#28C76F"
-            radius="sm"
-            size="xs"
-          >
-            16%
-          </Badge>
-        </Table.Td> */}
         <Table.Td>
           <Badge
             variant="filled"
@@ -119,7 +107,6 @@ function CustomTable({ data }: Props) {
             <Table.Th>CREATED</Table.Th>
             <Table.Th>CUSTOMER</Table.Th>
             <Table.Th>TOTAL</Table.Th>
-            {/* <Table.Th>PROFIT</Table.Th> */}
             <Table.Th>STATUS</Table.Th>
             <Table.Th></Table.Th>
           </Table.Tr>
