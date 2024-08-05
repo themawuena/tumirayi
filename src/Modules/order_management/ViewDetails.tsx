@@ -167,10 +167,10 @@ const ViewDetails = ({ items, params }: Props) => {
         </Flex>
         <Flex align={"center"} justify={"space-between"} gap={2}>
           <Flex align={"center"} gap={2}>
-            <IconCalendarMonth stroke={2} size={"20px"} color="#23272E" />
+            {/* <IconCalendarMonth stroke={2} size={"20px"} color="#23272E" />
             <Text className="text-[15px] text-[#23272E] font-medium ">
               Oct 11,2023 - Nov 11,2022
-            </Text>
+            </Text> */}
           </Flex>
           <Flex gap={20}>
             <MyMenu title="Change Satus" />
