@@ -45,6 +45,9 @@ const OrderTabs = () => {
       total: string;
       status: string;
       profit: string;
+      products: [] | any;
+      customerDetails: {} | any;
+      address: string;
     }[]
   >([]);
   const [filteredData, setFilteredData] = useState<
@@ -55,6 +58,9 @@ const OrderTabs = () => {
       total: string;
       status: string;
       profit: string;
+      products: [] | any;
+      customerDetails: {} | any;
+      address: string;
     }[]
   >([]);
   const [currentStatus, setCurrentStatus] = useState<string | null>("pending");
@@ -78,16 +84,24 @@ const OrderTabs = () => {
             total: string;
             status: string;
             profit: string;
+            products: [] | any;
+            customerDetails: {} | any;
+            address: string;
           }[],
           order: any
         ) => {
+          console.log(order, "hsh");
+
           acc.push({
             order_id: order.id,
+            address: order?.address,
             createdAt: new Date(order.created_at).toLocaleDateString(),
             customer: `${order.customer.firstname} ${order.customer.lastname}`,
+            customerDetails: order?.customer,
             total: order.total_price,
             profit: "N/A", // Adjust this as per your profit data
             status: order.status,
+            products: order?.ordered_product,
           });
           return acc;
         },

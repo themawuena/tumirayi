@@ -17,9 +17,10 @@ import {
   IconUser,
   IconShoppingBag,
 } from "@tabler/icons-react";
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { MyMenu } from "./Components/Menu";
 import CustomTable from "@/Components/Tables/ProductTable";
+import { useSelector } from "react-redux";
 
 interface Props {
   items: any;
@@ -55,15 +56,19 @@ type DataItem = {
 };
 
 const ViewDetails = ({ items, params }: Props) => {
+  const orderDetails = useSelector((state: any) => state.order.orderDetails);
+
+  let PRODUCTS = orderDetails?.products;
+
   const Details: DataItem[] = [
     {
       id: 1,
       icon: <IconUser stroke={2} color="white" />,
       Info: {
         name: "Customer",
-        email: "myemail@example.com",
-        fullName: "John Doe",
-        phone: "050000000",
+        email: orderDetails?.customerDetails?.email || "customer@example.com",
+        fullName: orderDetails?.customer,
+        phone: orderDetails?.customerDetails?.mobile || "N/A",
       },
       button: "View",
     },
@@ -84,17 +89,68 @@ const ViewDetails = ({ items, params }: Props) => {
       icon: <IconShoppingBag color="white" stroke={2} />,
       Info: {
         name: "Deliver to",
-        address: "Address: Dharam Colony, Palam Vihar, Gurgaon, Haryana ",
+        address: orderDetails?.address || "Delivery Address",
       },
       button: "View",
     },
   ];
 
+  // STATES
+  const [ORDER_PRODUCTS, setORDER_PRODUCTS] = useState<
+    {
+      order_id: number;
+      quantity: string;
+      id: string;
+      total: number;
+      name: string;
+      price: number;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    if (PRODUCTS) {
+      let restructuredData = PRODUCTS?.reduce(
+        (
+          acc: {
+            order_id: string;
+            quantity: string;
+            id: number;
+            total: number;
+            name: string;
+            price: number;
+          }[],
+          item: any
+        ) => {
+          acc.push({
+            order_id: item?.order_id,
+            quantity: item?.quantity,
+            id: Number(item?.id),
+            total: item?.quantity * Number(item?.sale_price),
+            name: item?.product?.product_name,
+            price: Number(item?.sale_price),
+          });
+          return acc;
+        },
+        []
+      );
+
+      setORDER_PRODUCTS(restructuredData);
+    }
+  }, [PRODUCTS]);
+
+  const totalSum = useMemo(() => {
+    return ORDER_PRODUCTS.reduce((acc, product) => acc + product.total, 0);
+  }, [ORDER_PRODUCTS]);
+
+  const percentageValue = useMemo(() => {
+    return totalSum * 0.015; // 1.5% of the total sum
+  }, [totalSum]);
+
   const Account = [
-    { name: "Subtotal", amount: 3201.6 },
-    { name: "Tax", amount: 640.32 },
+    { name: "Subtotal", amount: totalSum.toFixed(2) },
+    { name: "Tax", amount: percentageValue.toFixed(3) },
     { name: "Discount", amount: 0 },
-    { name: "Sipping Rate", amount: 0 },
+    { name: "Shipping Rate", amount: 0 },
   ];
 
   return (
@@ -103,7 +159,7 @@ const ViewDetails = ({ items, params }: Props) => {
       <Card style={{ gap: 30 }} radius={8}>
         <Flex gap={10} align={"center"}>
           <Text size="24px" c={"#232321"} fw={"600"}>
-            Orders ID: #{params.id}
+            Orders ID: #{orderDetails?.order_id || ""}
           </Text>
           <Button h={30} bg={COLORS["pending"].color} c={"black"}>
             Pending
@@ -249,7 +305,7 @@ const ViewDetails = ({ items, params }: Props) => {
         </Grid>
       </Card>
       <Card style={{ gap: 30 }} radius={8}>
-        <CustomTable />
+        <CustomTable data={ORDER_PRODUCTS} />
         <Flex direction={"column"} align={"end"} gap={15}>
           {Account.map((account) => (
             <Flex
@@ -264,8 +320,12 @@ const ViewDetails = ({ items, params }: Props) => {
             </Flex>
           ))}
           <Flex w={200} justify={"space-between"} align={"center"}>
-            <Text size="24px" fw={"600"}>Total</Text>
-            <Text size="24px" fw={"600"}>₹3841.92</Text>
+            <Text size="24px" fw={"600"}>
+              Total
+            </Text>
+            <Text size="24px" fw={"600"}>
+              ₹{(totalSum + percentageValue).toFixed(2)}
+            </Text>
           </Flex>
         </Flex>
       </Card>

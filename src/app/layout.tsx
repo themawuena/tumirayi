@@ -7,7 +7,7 @@ import "./globals.css";
 import { MantineProvider } from "@mantine/core";
 import Providers from "@/Providers/Provider";
 import QueryProvider from "@/Providers/Query";
-import { Notifications } from '@mantine/notifications';
+import { Notifications } from "@mantine/notifications";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {

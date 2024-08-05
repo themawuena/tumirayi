@@ -7,6 +7,7 @@ import {
   IconTrash,
   IconArrowsLeftRight,
   IconCaretDownFilled,
+  IconPointFilled,
 } from "@tabler/icons-react";
 
 interface Props {
@@ -14,6 +15,15 @@ interface Props {
 }
 
 export function MyMenu({ title }: Props) {
+  let Status: { name: string; color: string }[] = [
+    { name: "confirmed", color: "#28C76F" },
+    { name: "processing", color: "#0FB7FF" },
+    { name: "shipped", color: "#BD00FF" },
+    { name: "pending", color: "#FFC600" },
+    { name: "delivered", color: "#33189D" },
+    { name: "picked", color: "#0F60FF" },
+  ];
+
   return (
     <Menu shadow="md" width={200}>
       <Menu.Target>
@@ -41,58 +51,24 @@ export function MyMenu({ title }: Props) {
 
       <Menu.Dropdown>
         <Menu.Label>Application</Menu.Label>
-        <Menu.Item
-          leftSection={
-            <IconSettings style={{ width: rem(14), height: rem(14) }} />
-          }
-        >
-          Settings
-        </Menu.Item>
-        <Menu.Item
-          leftSection={
-            <IconMessageCircle style={{ width: rem(14), height: rem(14) }} />
-          }
-        >
-          Messages
-        </Menu.Item>
-        <Menu.Item
-          leftSection={
-            <IconPhoto style={{ width: rem(14), height: rem(14) }} />
-          }
-        >
-          Gallery
-        </Menu.Item>
-        <Menu.Item
-          leftSection={
-            <IconSearch style={{ width: rem(14), height: rem(14) }} />
-          }
-          rightSection={
-            <Text size="xs" c="dimmed">
-              ⌘K
-            </Text>
-          }
-        >
-          Search
-        </Menu.Item>
-
-        <Menu.Divider />
-
-        <Menu.Label>Danger zone</Menu.Label>
-        <Menu.Item
-          leftSection={
-            <IconArrowsLeftRight style={{ width: rem(14), height: rem(14) }} />
-          }
-        >
-          Transfer my data
-        </Menu.Item>
-        <Menu.Item
-          color="red"
-          leftSection={
-            <IconTrash style={{ width: rem(14), height: rem(14) }} />
-          }
-        >
-          Delete my account
-        </Menu.Item>
+        {Status?.map((status, index) => {
+          return (
+            <Menu.Item
+              key={index}
+              leftSection={
+                <IconPointFilled
+                  style={{
+                    width: rem(14),
+                    height: rem(14),
+                    color: status?.color,
+                  }}
+                />
+              }
+            >
+              {status.name}
+            </Menu.Item>
+          );
+        })}
       </Menu.Dropdown>
     </Menu>
   );

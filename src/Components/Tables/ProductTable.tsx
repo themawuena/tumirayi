@@ -20,7 +20,18 @@ export const COLORS: {
   picked: { name: "Picked", color: "#0F60FF", bg: "#0F60FF29" },
 };
 
-function CustomTable() {
+function CustomTable({
+  data,
+}: {
+  data: {
+    order_id: number;
+    quantity: string;
+    id: string;
+    total: number;
+    name: string;
+    price: number;
+  }[];
+}) {
   const router = useRouter();
   const pathName = usePathname();
 
@@ -53,25 +64,30 @@ function CustomTable() {
     }
   };
 
-  const rows = OrdersProductData?.map((element) => (
-    <Table.Tr key={element.order_id}>
-      <Table.Td>
-        <Flex gap={10}>
-          <Checkbox
-            aria-label="Select row"
-            checked={selectedRows.includes(element.order_id)}
-            onChange={(event) =>
-              handleRowSelect(element.order_id, event.currentTarget.checked)
-            }
-          />
-          {element.name}
-        </Flex>
-      </Table.Td>
-      <Table.Td>#{element.order_id}</Table.Td>
-      <Table.Td>{element.quantity}</Table.Td>
-      <Table.Td>R{element.total}</Table.Td>
-    </Table.Tr>
-  ));
+  const rows = data?.map((element) => {
+
+    console.log(element, "hs");
+    return (
+      <Table.Tr key={element?.order_id}>
+        <Table.Td>
+          <Flex gap={10}>
+            <Checkbox
+              aria-label="Select row"
+              checked={selectedRows.includes(element?.order_id)}
+              onChange={(event) =>
+                handleRowSelect(element?.order_id, event.currentTarget.checked)
+              }
+            />
+            {element?.name}
+          </Flex>
+        </Table.Td>
+        <Table.Td>#{element?.order_id}</Table.Td>
+        <Table.Td>{element?.quantity}</Table.Td>
+        <Table.Td>R {element?.price}</Table.Td>
+        <Table.Td>R {element?.total}</Table.Td>
+      </Table.Tr>
+    );
+  });
 
   return (
     <Table
@@ -89,13 +105,13 @@ function CustomTable() {
           padding: "10px",
         },
       }}
-     
     >
       <Table.Thead>
         <Table.Tr>
           <Table.Th>PRODUCT NAME</Table.Th>
           <Table.Th>ORDER ID</Table.Th>
           <Table.Th>Quantity</Table.Th>
+          <Table.Th>PRICE</Table.Th>
           <Table.Th>Total</Table.Th>
         </Table.Tr>
       </Table.Thead>

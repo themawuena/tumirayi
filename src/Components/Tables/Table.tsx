@@ -1,6 +1,9 @@
+import { setOrderDetails } from "@/Providers/Store/orderSlice";
 import { Badge, Pagination, Table, Text } from "@mantine/core";
 import { IconCircleCaretDown } from "@tabler/icons-react";
+import { log } from "console";
 import { usePathname, useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 
 export const COLORS: {
   confirmed: { name: string; color: string; bg: string };
@@ -26,59 +29,65 @@ interface Props {
     total: string;
     status: string;
     profit: string;
+    customerDetails: {} | any;
+    address: string;
   }[];
 }
 
 function CustomTable({ data }: Props) {
   const router = useRouter();
   const pathName = usePathname();
+  const dispatch = useDispatch();
 
-  const handleRowClick = (id: string, type: string) => {
+  const handleRowClick = (id: string, type: string, query: any) => {
     if (type === "view") {
-      router.push(`${pathName}/view/${id}`);
+      dispatch(setOrderDetails(query));
+      router.push(`${pathName}/view/${id}?${query}`);
     } else if (type === "edit") {
       router.push(`/edit/${id}`);
     }
   };
 
-  const rows = data?.map((element) => (
-    <Table.Tr
-      key={element.order_id}
-      onClick={() => handleRowClick(element.order_id, "view")}
-      style={{ cursor: "pointer" }}
-    >
-      <Table.Td>#{element.order_id}</Table.Td>
-      <Table.Td>{element.createdAt}</Table.Td>
-      <Table.Td>{element.customer}</Table.Td>
-      <Table.Td>{element.total}</Table.Td>
-      <Table.Td>
-        {element.profit}
-        <Badge
-          variant="light"
-          bg={"#28C76F29"}
-          color="#28C76F"
-          radius="sm"
-          size="xs"
-        >
-          16%
-        </Badge>
-      </Table.Td>
-      <Table.Td>
-        <Badge
-          variant="filled"
-          c={COLORS?.[element.status].color}
-          bg={COLORS?.[element.status].bg}
-          radius="sm"
-          size="sm"
-        >
-          <Text size="10px">{COLORS?.[element.status].name}</Text>
-        </Badge>
-      </Table.Td>
-      <Table.Td>
-        <IconCircleCaretDown size={20} stroke={2} color="#8B909A" />
-      </Table.Td>
-    </Table.Tr>
-  ));
+  const rows = data?.map((element) => {
+    return (
+      <Table.Tr
+        key={element?.order_id}
+        onClick={() => handleRowClick(element.order_id, "view", element)}
+        style={{ cursor: "pointer" }}
+      >
+        <Table.Td>#{`${element.order_id}`}</Table.Td>
+        <Table.Td>{element.createdAt}</Table.Td>
+        <Table.Td>{element.customer}</Table.Td>
+        <Table.Td>{element.total}</Table.Td>
+        <Table.Td>
+          {element.profit}
+          <Badge
+            variant="light"
+            bg={"#28C76F29"}
+            color="#28C76F"
+            radius="sm"
+            size="xs"
+          >
+            16%
+          </Badge>
+        </Table.Td>
+        <Table.Td>
+          <Badge
+            variant="filled"
+            c={COLORS?.[element.status].color}
+            bg={COLORS?.[element.status].bg}
+            radius="sm"
+            size="sm"
+          >
+            <Text size="10px">{COLORS?.[element.status].name}</Text>
+          </Badge>
+        </Table.Td>
+        <Table.Td>
+          <IconCircleCaretDown size={20} stroke={2} color="#8B909A" />
+        </Table.Td>
+      </Table.Tr>
+    );
+  });
 
   return (
     <>
