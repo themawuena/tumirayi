@@ -1,7 +1,6 @@
 import { Menu, rem, Avatar } from "@mantine/core";
 import { IconLogout } from "@tabler/icons-react";
-import { signOut, useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export function UserMenu() {
   const handleLogout = async () => {

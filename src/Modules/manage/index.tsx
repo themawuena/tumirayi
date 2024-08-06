@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+"use client"
 import { Flex } from "@mantine/core";
 import MainHeader from "@/Components/Header/MainHeader3";
 

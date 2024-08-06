@@ -46,7 +46,6 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
 
   // * HOOKS
   const router = useRouter();
-  const { data } = useSession();
 
   //  API
   const {
@@ -144,7 +143,6 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
       selectedFiles.forEach((file) => {
         formData.append("images[]", file);
       });
-      console.log("selectedFiles");
 
       const response = await axios.post(
         // @ts-ignore
@@ -160,9 +158,9 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
       return response.data;
     },
 
+
     onError: (error) => {
       console.log(error, "error");
-
       notifications.show({
         title: "Creating a product failed",
         message: error.message || "Adding a product failed",
@@ -177,6 +175,7 @@ const AddProducts = ({ params }: { params: { id: string } }) => {
       });
       router.back();
     },
+
   });
 
   const handleSubmitForm2 = (values: any) => {
